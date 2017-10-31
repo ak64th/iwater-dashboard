@@ -1,0 +1,78 @@
+// Vendor
+@import 'lib/normalize';
+@import 'lib/susy';
+@import 'lib/su';
+@import 'lib/scut';
+@import 'lib/breakpoint';
+// Setup
+@import 'mixins';
+@import 'variables';
+@import 'fonts';
+@import 'globals';
+
+html,
+body {
+  min-height: 960px;
+}
+
+body {
+  background-color: $body-background;
+}
+
+.app {
+  @include container;
+  min-height: 100%;
+}
+
+.site-header {
+  @include scut-absolute;
+  @include span(full);
+  background-color: $header-background;
+  height: $site-header-height;
+}
+
+.content {
+  padding-top: $site-header-height;
+  position: relative;
+}
+
+//.column {
+//  background-color: $content-background;
+//}
+
+.column-1 {
+  @include span(6 wide);
+}
+
+.column-2 {
+  @include span(6);
+}
+
+.block {
+  box-shadow: inset 2px 2px $primary-light, inset -2px -2px $primary-light;
+  display: block;
+  min-height: 200px;
+}
+
+.block-1 {
+  height: 690px;
+}
+
+.block-2 {
+  height: 195px;
+}
+
+.block-3 {
+  height: 400px;
+  padding-top: 30px;
+}
+
+.block-4 {
+  height: 220px;
+  padding-top: 30px;
+}
+
+.block-5 {
+  height: 270px;
+  padding-top: 30px;
+}

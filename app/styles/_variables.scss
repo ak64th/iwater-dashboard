@@ -1,0 +1,35 @@
+@import 'lib/scut';
+
+// normalize vertical rhythm
+$base-font-size: 14px;
+$base-line-height: 20px;
+$base-unit: 'em';
+$base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$normalize-vertical-rhythm: true;
+
+// susy
+$susy: (
+  container: scut-em(1336px, $base-font-size),
+  container-position: center,
+  columns: 12,
+  gutters: 1 / 4,
+  global-box-sizing: border-box,
+  debug: (
+    image: show,
+    color: #dad,
+    output: overlay
+  )
+);
+
+// color palette
+$primary: #005991;
+$primary-light: #4c85c2;
+$primary-dark: #003063;
+
+$body-background: $primary-dark;
+$header-background: $primary;
+$content-background: $primary-light;
+
+
+// layout
+$site-header-height: 2 * $base-line-height;
