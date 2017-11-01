@@ -1,0 +1,48 @@
+@import 'variables';
+
+@mixin corner-highlight-border($width, $height) {
+  // Custom border style
+  $dark: darken($primary-dark, 30);
+
+  border: 1px $primary solid;
+  box-shadow: inset 1px 1px $dark, inset -1px -1px $dark;
+
+  // Build four little transparent boxes on the corners
+  &,
+  > :first-child {
+    &::before,
+    &::after {
+      border: solid $primary-light;
+      content: ' ';
+      height: $height;
+      position: absolute;
+      width: $width;
+    }
+  }
+
+  &::before {
+    border-width: 2px 0 0 2px;
+    left: -1px;
+    top: -1px;
+  }
+
+  &::after {
+    border-width: 2px 2px 0 0;
+    right: -1px;
+    top: -1px;
+  }
+
+  > :first-child {
+    &::before {
+      border-width: 0 2px 2px 0;
+      bottom: -1px;
+      right: -1px;
+    }
+
+    &::after {
+      border-width: 0 0 2px 2px;
+      bottom: -1px;
+      left: -1px;
+    }
+  }
+}

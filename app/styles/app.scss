@@ -42,20 +42,71 @@ body {
 
 .column-1 {
   @include span(6 wide);
+  padding-left: 20px;
+
+  .widget {
+    max-width: 660px;
+  }
 }
 
 .column-2 {
   @include span(6);
+  padding-left: 30px;
+  padding-right: 26px;
+
+  .widget {
+    max-width: 600px;
+  }
 }
 
 .block {
-  box-shadow: inset 2px 2px $primary-light, inset -2px -2px $primary-light;
+  //box-shadow: inset 2px 2px $primary-light, inset -2px -2px $primary-light;
   display: block;
   min-height: 200px;
 }
 
 .block-1 {
   height: 690px;
+}
+
+.map-control {
+  display: inline-block;
+  margin: 15px;
+  position: relative;
+  z-index: 1;
+
+  input,
+  select {
+    background: $primary;
+    border: 1px solid $primary-light;
+    border-radius: 5px 0 0 5px;
+    color: $primary-light;
+    display: block;
+    float: left;
+    height: 25px;
+    padding-left: 10px;
+
+    &:focus {
+      border-color: $primary-light;
+      color: $primary-light;
+      outline: none;
+    }
+  }
+
+  input {
+    margin-left: 10px;
+    padding: 3px 0 3px 10px;
+
+    &::placeholder {
+      color: $primary-light;
+    }
+  }
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 80px;
+  }
 }
 
 .block-2 {
@@ -75,4 +126,11 @@ body {
 .block-5 {
   height: 270px;
   padding-top: 30px;
+}
+
+.widget {
+  @include corner-highlight-border(26px, 14px);
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
