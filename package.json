@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "sasslintConfig": ".sass-lint.yml",
   "author": "Elmer Yu",
   "license": "ISC",
   "devDependencies": {
@@ -16,5 +17,8 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0"
+  },
+  "dependencies": {
+    "gulp-image": "^4.0.0"
   }
 }
