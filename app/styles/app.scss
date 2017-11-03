@@ -1,9 +1,6 @@
 // Vendor
 @import 'lib/normalize';
-@import 'lib/susy';
-@import 'lib/su';
 @import 'lib/scut';
-@import 'lib/breakpoint';
 // Setup
 @import 'mixins';
 @import 'variables';
@@ -17,18 +14,51 @@ body {
 
 body {
   background-color: $body-background;
+  min-width: $container-width;
 }
 
 .app {
-  @include container;
+  @include scut-clearfix;
+  background: no-repeat url('../images/content-bg.jpg');
+  margin-left: auto;
+  margin-right: auto;
   min-height: 100%;
+  width: $container-width;
+}
+
+.header-bar {
+  @include scut-absolute;
+  background-color: $header-background;
+  height: $site-header-height;
+  width: 100%;
 }
 
 .site-header {
-  @include scut-absolute;
-  @include span(full);
-  background-color: $header-background;
-  height: $site-header-height;
+  @include scut-vcenter-ib('*', '.menu-toggle > *', '.header-title > *', '.header-panel > *');
+  background: url('../images/banner.png') center no-repeat;
+  color: white;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: $container-width;
+
+  .menu-toggle {
+    margin-left: 2%;
+    width: 5%;
+  }
+
+  .header-title {
+    width: 20%;
+  }
+
+  .header-panel {
+    text-align: right;
+    width: 70%;
+
+    a {
+      margin-right: 10px;
+    }
+  }
 }
 
 .content {
@@ -36,13 +66,9 @@ body {
   position: relative;
 }
 
-//.column {
-//  background-color: $content-background;
-//}
-
 .column-1 {
-  @include span(6 wide);
-  padding-left: 20px;
+  float: left;
+  width: 50%;
 
   .widget {
     max-width: 660px;
@@ -50,28 +76,18 @@ body {
 }
 
 .column-2 {
-  @include span(6);
-  padding-left: 30px;
-  padding-right: 26px;
+  float: left;
+  padding-left: 25px;
+  width: 50%;
 
   .widget {
     max-width: 600px;
   }
 }
 
-.block {
-  //box-shadow: inset 2px 2px $primary-light, inset -2px -2px $primary-light;
-  display: block;
-  min-height: 200px;
-}
-
-.block-1 {
-  height: 690px;
-}
-
 .map-control {
   display: inline-block;
-  margin: 15px;
+  margin: 15px 20px 5px;
   position: relative;
   z-index: 1;
 
@@ -79,7 +95,7 @@ body {
   select {
     background: $primary;
     border: 1px solid $primary-light;
-    border-radius: 5px 0 0 5px;
+    border-radius: 3px;
     color: $primary-light;
     display: block;
     float: left;
@@ -109,22 +125,28 @@ body {
   }
 }
 
+.block-1 {
+  height: 689px;
+  padding-left: 20px;
+}
+
 .block-2 {
   height: 195px;
+  padding-left: 20px;
 }
 
 .block-3 {
-  height: 400px;
+  height: 398px;
   padding-top: 30px;
 }
 
 .block-4 {
-  height: 220px;
+  height: 218px;
   padding-top: 30px;
 }
 
 .block-5 {
-  height: 270px;
+  height: 268px;
   padding-top: 30px;
 }
 
@@ -132,5 +154,26 @@ body {
   @include corner-highlight-border(26px, 14px);
   height: 100%;
   position: relative;
+  width: 100%;
+}
+
+.widget-header {
+  color: lighten($primary-light, 10);
+  cursor: default;
+  margin-left: 10px;
+  margin-top: 10px;
+  user-select: none;
+}
+
+.map-container {
+  border: dashed 1px $primary;
+  height: 463px;
+  margin-left: 40px;
+  width: 545px;
+}
+
+.device-pie-container {
+  border: dashed 1px $primary;
+  height: 167px;
   width: 100%;
 }

@@ -9,10 +9,24 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/sprite.css" media="screen" charset="utf-8">
 </head>
 <body>
 <div class="app">
-  <header class="site-header">
+  <header class="header-bar">
+    <div class="site-header">
+      <div class="menu-toggle">
+      <i class="icon-menu"></i>
+      </div>
+      <div class="header-title">
+        <i class="title-icon icon-folder"></i>
+        <div>业务概况</div>
+      </div>
+      <div class="header-panel">
+        <a>登陆</a>
+        <a>注册</a>
+      </div>
+    </div>
   </header>
   <div class="content">
     <div class="column column-1">
@@ -22,8 +36,10 @@
           <select class='panel-control' name="region" id="region-select">
             <option value="">全国</option>
           </select>
-          <input class='panel-control' name="search" placeholder="输入设备编号查询">
+          <input type="search" class='panel-control' name="search" placeholder="输入设备编号查询">
         </form>
+        <div class="map-container"></div>
+        <div class="device-pie-container"></div>
       </div>
       <div class="block block-2">
         <div class="widget">
@@ -33,17 +49,20 @@
     </div>
     <div class="column column-2">
       <div class="block block-3">
-        <div class="widget">
+        <article class="widget">
+          <header class="widget-header">服务信息</header>
           <div></div>
-        </div>
+        </article>
       </div>
       <div class="block block-4">
         <div class="widget">
+          <header class="widget-header">用户画像</header>
           <div></div>
         </div>
       </div>
       <div class="block block-5">
         <div class="widget">
+          <header class="widget-header">渠道分析</header>
           <div></div>
         </div>
       </div>
