@@ -1,5 +1,0 @@
-rules:
-  no-vendor-prefixes:
-    - 0
-    -
-      ignore-non-standard: true
