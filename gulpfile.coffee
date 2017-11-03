@@ -1,10 +1,12 @@
 autoprefixer = require('gulp-autoprefixer')
 browserSync = require('browser-sync').create()
+buffer = require 'vinyl-buffer'
 del = require 'del'
 gulp = require 'gulp'
 image = require 'gulp-image'
 sass = require 'gulp-sass'
 sourceMaps = require 'gulp-sourcemaps'
+spritesmith = require 'gulp.spritesmith'
 
 PATH =
   APP: './app'
@@ -13,6 +15,7 @@ PATH =
 PATH.INDEX = "#{PATH.APP}/index.html"
 PATH.STYLES = "#{PATH.APP}/styles"
 PATH.IMAGES = "#{PATH.APP}/images"
+PATH.SPRITES = "#{PATH.IMAGES}/sprites"
 PATH.CSS = "#{PATH.DIST}/css"
 PATH.DIST_IMAGES = "#{PATH.DIST}/images"
 
@@ -36,9 +39,22 @@ gulp.task 'style', ->
     .pipe browserSync.stream()
 
 gulp.task 'image', ->
-  gulp.src "#{PATH.IMAGES}/**/*.jpg"
+  gulp.src "#{PATH.IMAGES}/*.{jpg,png}"
     .pipe image()
     .pipe gulp.dest PATH.DIST_IMAGES
+
+gulp.task 'sprite', ->
+  spriteData = gulp.src "#{PATH.SPRITES}/*.png"
+    .pipe spritesmith
+      imgName: '../images/sprite.png'
+      cssName: 'sprite.css'
+#    .pipe gulp.dest PATH.STYLES
+  spriteData.css.pipe gulp.dest PATH.CSS
+  #  spriteData.css.pipe gulp.dest PATH.STYLES
+  spriteData.img.pipe buffer()
+    .pipe image()
+    .pipe gulp.dest PATH.DIST_IMAGES
+  return spriteData
 
 gulp.task 'watch', ['html', 'style'], ->
   gulp.watch PATH.INDEX, ['reload-html']
