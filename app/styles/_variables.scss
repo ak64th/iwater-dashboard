@@ -1,4 +1,4 @@
-@import 'lib/scut';
+@import 'scut';
 
 // normalize vertical rhythm
 $base-font-size: 14px;
@@ -17,6 +17,8 @@ $primary-dark: #003063;
 $body-background: $primary-dark;
 $header-background: $primary;
 $content-background: $primary-light;
+
+$header-color: #fff;
 
 
 // layout

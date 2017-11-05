@@ -1,6 +1,6 @@
 // Vendor
-@import 'lib/normalize';
-@import 'lib/scut';
+@import 'normalize';
+@import 'scut';
 // Setup
 @import 'mixins';
 @import 'variables';
@@ -14,7 +14,6 @@ body {
 
 body {
   background-color: $body-background;
-  min-width: $container-width;
 }
 
 .app {
@@ -36,7 +35,7 @@ body {
 .site-header {
   @include scut-vcenter-ib('*', '.menu-toggle > *', '.header-title > *', '.header-panel > *');
   background: url('../images/banner.png') center no-repeat;
-  color: white;
+  color: $header-color;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -119,8 +118,8 @@ body {
   }
 
   select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+    -moz-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
+    -webkit-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
     width: 80px;
   }
 }

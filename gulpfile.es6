@@ -2,6 +2,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import {create as createBrowserSync} from 'browser-sync';
 import buffer from 'vinyl-buffer';
 import del from 'del';
+import eyeglass from 'eyeglass';
 import gulp from 'gulp';
 import image from 'gulp-image';
 import sass from 'gulp-sass';
@@ -33,7 +34,9 @@ gulp.task('reload-html', ['html'], () => browserSync.reload());
 gulp.task('style', () => {
     return gulp.src(`${PATH.STYLES}/app.scss`)
         .pipe(sourceMaps.init())
-        .pipe(sass()).on('error', sass.logError)
+        .pipe(sass(
+            eyeglass()
+        )).on('error', sass.logError)
         .pipe(autoprefixer())
         .pipe(sourceMaps.write('./'))
         .pipe(gulp.dest(PATH.CSS))
