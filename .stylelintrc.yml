@@ -1,7 +1,10 @@
 plugins:
   - stylelint-scss
   - stylelint-order
-extends: 'stylelint-config-sass-guidelines'
+extends:
+  - 'stylelint-config-sass-guidelines'
+  - 'stylelint-config-idiomatic-order'
 rules:
   max-nesting-depth: 2
+  order/properties-alphabetical-order: null
 defaultSeverity: warning
