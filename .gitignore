@@ -1,5 +1,5 @@
 node_modules/
-bower_components/
+.eyeglass_cache/
 dist/
 .idea/
 yarn.lock
