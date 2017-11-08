@@ -1,13 +1,19 @@
 import autoprefixer from 'gulp-autoprefixer';
-import {create as createBrowserSync} from 'browser-sync';
+import babelify from 'babelify';
 import buffer from 'vinyl-buffer';
+import Browserify from 'browserify';
+import {create as createBrowserSync} from 'browser-sync';
 import del from 'del';
 import eyeglass from 'eyeglass';
 import gulp from 'gulp';
+import gulpSequence from 'gulp-sequence';
+import gutil from 'gulp-util';
 import image from 'gulp-image';
 import sass from 'gulp-sass';
+import source from 'vinyl-source-stream';
 import sourceMaps from 'gulp-sourcemaps';
 import smith from 'gulp.spritesmith';
+import watchify from 'watchify';
 
 const browserSync = createBrowserSync();
 
@@ -17,9 +23,11 @@ let PATH = {
 };
 
 PATH.INDEX = `${PATH.APP}/index.html`;
+PATH.SCRIPTS = `${PATH.APP}/scripts`;
 PATH.STYLES = `${PATH.APP}/styles`;
 PATH.IMAGES = `${PATH.APP}/images`;
 PATH.SPRITES = `${PATH.IMAGES}/sprites`;
+PATH.JS = `${PATH.DIST}/js`;
 PATH.CSS = `${PATH.DIST}/css`;
 PATH.DIST_IMAGES = `${PATH.DIST}/images`;
 
@@ -31,12 +39,62 @@ gulp.task('html', () => {
 
 gulp.task('reload-html', ['html'], () => browserSync.reload());
 
+gulp.task('vendor-scripts', () => {
+    const b = new Browserify({
+        debug: true,
+        entries: `${PATH.SCRIPTS}/vendor.js`,
+    });
+    return b.bundle()
+        .pipe(source('vendor.js'))
+        .pipe(buffer())
+        .pipe(sourceMaps.init({loadMaps: true}))
+        .pipe(sourceMaps.write('./'))
+        .pipe(gulp.dest(PATH.JS));
+});
+
+const bundleScripts = (watch = false) => {
+    let b;
+    let opts = {
+        debug: true,
+        entries: `${PATH.SCRIPTS}/app.js`,
+    };
+    const _bundle = (b) => {
+        return b.transform([babelify])
+            .bundle().on('error', (error) => {
+                gutil.log(error.toString());
+                browserSync.notify('Browserify Error');
+                return b.emit('end');
+            })
+            .pipe(source('app.js'))
+            .pipe(buffer())
+            .pipe(sourceMaps.init({loadMaps: true}))
+            .pipe(sourceMaps.write('./'))
+            .pipe(gulp.dest(PATH.JS))
+            .pipe(browserSync.stream());
+    };
+    if (watch) {
+        b = watchify(new Browserify(
+            Object.assign({}, watchify.args, opts)
+        ));
+        b.on('log', gutil.log);
+        b.on('update', () => {
+            _bundle(b);
+            browserSync.notify('Browserify Update');
+        });
+    } else {
+        b = new Browserify(opts);
+    }
+    return _bundle(b);
+};
+
+gulp.task('scripts', () => bundleScripts());
+gulp.task('watch-scripts', () => bundleScripts(true));
+
 gulp.task('style', () => {
     return gulp.src(`${PATH.STYLES}/app.scss`)
         .pipe(sourceMaps.init())
-        .pipe(sass(
-            eyeglass()
-        )).on('error', sass.logError)
+        .pipe(sass(eyeglass()))
+        .on('error', sass.logError)
         .pipe(autoprefixer())
         .pipe(sourceMaps.write('./'))
         .pipe(gulp.dest(PATH.CSS))
@@ -62,12 +120,21 @@ gulp.task('sprite', () => {
     return spriteData;
 });
 
-gulp.task('watch', ['html', 'style'], () => {
+gulp.task('build',
+    gulpSequence(
+        'clean',
+        'vendor-scripts',
+        ['html', 'style', 'scripts'],
+        ['image', 'sprite']
+    )
+);
+
+gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
     gulp.watch(PATH.INDEX, ['reload-html']);
     gulp.watch(`${PATH.STYLES}/**/*.{scss,sass}`, ['style']);
 });
 
-gulp.task('server', ['image', 'watch'], () => {
+gulp.task('server', ['watch'], () => {
     browserSync.init({
         open: true,
         browser: 'chromium-browser',
