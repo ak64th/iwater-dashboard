@@ -7,43 +7,46 @@
 @import 'fonts';
 @import 'globals';
 
-html,
-body {
-  min-height: 960px;
-}
-
 body {
   background-color: $body-background;
 }
 
 .app {
   @include scut-clearfix;
-  background: no-repeat url('../images/content-bg.jpg');
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 100%;
+
   width: $container-width;
+  min-height: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  background: no-repeat url('../images/content-bg.jpg');
 }
 
 .header-bar {
   @include scut-absolute;
-  background-color: $header-background;
-  height: $site-header-height;
+
   width: 100%;
+  height: $site-header-height;
+  background-color: $header-background;
 }
 
 .site-header {
-  @include scut-vcenter-ib('*', '.menu-toggle > *', '.header-title > *', '.header-panel > *');
+  @include scut-vcenter-ib(
+    '*',
+    '.menu-toggle > *',
+    '.header-title > *',
+    '.header-panel > *'
+  );
+
+  width: $container-width;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
   background: url('../images/banner.png') center no-repeat;
   color: $header-color;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  width: $container-width;
 
   .menu-toggle {
-    margin-left: 2%;
     width: 5%;
+    margin-left: 2%;
   }
 
   .header-title {
@@ -51,8 +54,8 @@ body {
   }
 
   .header-panel {
-    text-align: right;
     width: 70%;
+    text-align: right;
 
     a {
       margin-right: 10px;
@@ -61,13 +64,13 @@ body {
 }
 
 .content {
-  padding-top: $site-header-height;
   position: relative;
+  padding-top: $site-header-height;
 }
 
 .column-1 {
-  float: left;
   width: 50%;
+  float: left;
 
   .widget {
     max-width: 660px;
@@ -75,9 +78,9 @@ body {
 }
 
 .column-2 {
-  float: left;
-  padding-left: 25px;
   width: 50%;
+  padding-left: 25px;
+  float: left;
 
   .widget {
     max-width: 600px;
@@ -85,21 +88,21 @@ body {
 }
 
 .map-control {
-  display: inline-block;
-  margin: 15px 20px 5px;
   position: relative;
   z-index: 1;
+  display: inline-block;
+  margin: 15px 20px 5px;
 
   input,
   select {
-    background: $primary;
-    border: 1px solid $primary-light;
-    border-radius: 3px;
-    color: $primary-light;
     display: block;
-    float: left;
     height: 25px;
     padding-left: 10px;
+    border: 1px solid $primary-light;
+    background: $primary;
+    border-radius: 3px;
+    color: $primary-light;
+    float: left;
 
     &:focus {
       border-color: $primary-light;
@@ -109,8 +112,8 @@ body {
   }
 
   input {
-    margin-left: 10px;
     padding: 3px 0 3px 10px;
+    margin-left: 10px;
 
     &::placeholder {
       color: $primary-light;
@@ -118,29 +121,29 @@ body {
   }
 
   select {
+    width: 80px;
     -moz-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
     -webkit-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
-    width: 80px;
   }
 }
 
 .block-1 {
-  height: 689px;
+  height: 700px;
   padding-left: 20px;
 }
 
 .block-2 {
-  height: 195px;
+  height: 188px;
   padding-left: 20px;
 }
 
 .block-3 {
-  height: 398px;
-  padding-top: 30px;
+  height: 222px;
+  padding-top: 27px;
 }
 
 .block-4 {
-  height: 218px;
+  height: 398px;
   padding-top: 30px;
 }
 
@@ -151,28 +154,37 @@ body {
 
 .widget {
   @include corner-highlight-border(26px, 14px);
-  height: 100%;
+
   position: relative;
   width: 100%;
+  height: 100%;
+
+  .more-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: lighten($primary-light, 10);
+    cursor: pointer;
+    text-decoration: none;
+  }
 }
 
 .widget-header {
-  color: lighten($primary-light, 10);
-  cursor: default;
-  margin-left: 10px;
   margin-top: 10px;
+  margin-left: 10px;
+  color: lighten($primary-light, 10);
   user-select: none;
 }
 
 .map-container {
-  border: dashed 1px $primary;
-  height: 463px;
-  margin-left: 40px;
   width: 545px;
+  height: 463px;
+  border: dashed 1px $primary;
+  margin-left: 40px;
 }
 
 .device-pie-container {
-  border: dashed 1px $primary;
-  height: 167px;
   width: 100%;
+  height: 167px;
+  border: dashed 1px $primary;
 }
