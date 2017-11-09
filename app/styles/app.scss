@@ -8,7 +8,7 @@
 @import 'globals';
 
 body {
-  background-color: $body-background;
+  background: $body-background;
 }
 
 .app {
@@ -158,12 +158,13 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+  background: $widget-background;
 
   .more-link {
     position: absolute;
     top: 10px;
     right: 10px;
-    color: lighten($primary-light, 10);
+    color: $primary-lightest;
     cursor: pointer;
     text-decoration: none;
   }
@@ -172,7 +173,7 @@ body {
 .widget-header {
   margin-top: 10px;
   margin-left: 10px;
-  color: lighten($primary-light, 10);
+  color: $primary-lightest;
   user-select: none;
 }
 
@@ -183,8 +184,15 @@ body {
   margin-left: 40px;
 }
 
-.device-pie-container {
+.device-summary-container {
   width: 100%;
   height: 167px;
+}
+
+.device-summary-item {
+  width: 45%;
+  height: 48px;
   border: dashed 1px $primary;
+  margin: 10px;
+  float: left;
 }

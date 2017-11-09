@@ -10,16 +10,20 @@ $normalize-vertical-rhythm: true;
 $container-width: scut-em(1336px, $base-font-size);
 
 // color palette
-$primary: #005991;
+$primary: #263372;
 $primary-light: #4c85c2;
+$primary-lighter: #0caefd;
+$primary-light-gray: #5e9abe;
+$primary-lightest: #38f7fe;
 $primary-dark: #003063;
+$dark: #080309;
+$light: #fff;
 
-$body-background: $primary-dark;
+$body-background: linear-gradient($primary, $dark);
 $header-background: $primary;
-$content-background: $primary-light;
+$widget-background: rgba(#121044, 0.6);
 
 $header-color: #fff;
-
 
 // layout
 $site-header-height: 2 * $base-line-height;
