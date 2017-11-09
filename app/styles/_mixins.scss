@@ -2,7 +2,7 @@
 
 @mixin corner-highlight-border($width, $height) {
   // Custom border style
-  $shadow-color: rgba($dark, 0.5);
+  $shadow-color: rgba($primary-dark, 0.5);
 
   border: 1px rgba($primary-light, 0.5) solid;
   box-shadow: inset 1px 1px $shadow-color, inset -1px -1px $shadow-color;
