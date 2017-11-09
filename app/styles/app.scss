@@ -87,46 +87,6 @@ body {
   }
 }
 
-.map-control {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  margin: 15px 20px 5px;
-
-  input,
-  select {
-    display: block;
-    height: 25px;
-    padding-left: 10px;
-    border: 1px solid $primary-light;
-    background: $primary;
-    border-radius: 3px;
-    color: $primary-light;
-    float: left;
-
-    &:focus {
-      border-color: $primary-light;
-      color: $primary-light;
-      outline: none;
-    }
-  }
-
-  input {
-    padding: 3px 0 3px 10px;
-    margin-left: 10px;
-
-    &::placeholder {
-      color: $primary-light;
-    }
-  }
-
-  select {
-    width: 80px;
-    -moz-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
-    -webkit-appearance: none;  // stylelint-disable-line property-no-vendor-prefix
-  }
-}
-
 .block-1 {
   height: 700px;
   padding-left: 20px;
@@ -152,6 +112,54 @@ body {
   padding-top: 30px;
 }
 
+.panel-control {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 15px 20px 5px;
+
+  #{&}-item {
+    @include scut-color-swap($primary-light, $light, 1s);
+
+    display: block;
+    height: 25px;
+    padding-left: 10px;
+    border: 1px solid $primary-light;
+    margin-left: 10px;
+    background: $primary;
+    border-radius: 3px;
+    float: left;
+    outline: none;
+  }
+}
+
+.year-select,
+.region-select {
+  width: 80px;
+  padding-top: 2px;
+  -moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+  -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+}
+
+.device-search {
+  display: inline;
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+
+  .search-input {
+    padding: 0 20px 0 10px;
+
+    &::placeholder {
+      color: $primary-light-gray;
+    }
+  }
+}
+
 .widget {
   @include corner-highlight-border(26px, 14px);
 
@@ -161,10 +169,11 @@ body {
   background: $widget-background;
 
   .more-link {
+    @include scut-color-swap($primary-lightest, $light);
+
     position: absolute;
     top: 10px;
     right: 10px;
-    color: $primary-lightest;
     cursor: pointer;
     text-decoration: none;
   }
@@ -180,7 +189,6 @@ body {
 .map-container {
   width: 545px;
   height: 463px;
-  border: dashed 1px $primary;
   margin-left: 40px;
 }
 

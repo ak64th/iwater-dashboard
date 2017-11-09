@@ -31,12 +31,18 @@
   <div class="content">
     <div class="column column-1">
       <div class="block block-1">
-        <form class="map-control">
-          <label class="sr-only" for="region-select"></label>
-          <select class='panel-control' name="region" id="region-select">
+        <form class="panel-control">
+          <select name="year" class="panel-control-item year-select" title="year">
+            <option value="2017">2017</option>
+          </select>
+          <select class='panel-control-item region-select' name="region" title="region">
             <option value="">全国</option>
           </select>
-          <input type="search" class='panel-control' name="search" placeholder="输入设备编号查询">
+          <div class="device-search">
+            <label class="icon-magnifier search-icon"></label>
+            <input type="search" class='panel-control-item search-input' name="search"
+                   placeholder="输入设备编号查询">
+          </div>
         </form>
         <div class="map-container"></div>
         <div class="device-summary-container">
