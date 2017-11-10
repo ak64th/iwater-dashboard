@@ -88,12 +88,12 @@ body {
 }
 
 .block-1 {
-  height: 700px;
+  height: $block-map-height;
   padding-left: 20px;
 }
 
 .block-2 {
-  height: 188px;
+  height: $block-customer-height;
   padding-left: 20px;
 }
 
@@ -118,7 +118,7 @@ body {
   display: inline-block;
   margin: 15px 20px 5px;
 
-  #{&}-item {
+  &-item {
     @include scut-color-swap($primary-light, $light, 1s);
 
     display: block;
@@ -172,17 +172,18 @@ body {
     @include scut-color-swap($primary-lightest, $light);
 
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: $widget-header-height;
+    right: 40px;
     cursor: pointer;
     text-decoration: none;
   }
 }
 
 .widget-header {
-  margin-top: 10px;
+  margin-top: $widget-header-height;
   margin-left: 10px;
   color: $primary-lightest;
+  cursor: default;
   user-select: none;
 }
 
@@ -204,3 +205,54 @@ body {
   margin: 10px;
   float: left;
 }
+
+.customer-chart-container {
+  width: 100%;
+  height: $block-customer-height - $base-line-height - $widget-header-height;
+}
+
+.install-total {
+  @include scut-color-swap($primary-light-gray, $light, 1s);
+
+  position: absolute;
+  top: 20px;
+  left: 55px;
+  width: 180px;
+  cursor: default;
+  font-size: 16px;
+  line-height: 20px;
+
+  .highlight {
+    color: $emphasis;
+    font-size: 20px;
+  }
+}
+
+.tab-control {
+  position: absolute;
+  top: 16px;
+  left: 200px;
+  display: inline-block;
+  color: $primary-light-gray;
+
+  &-item {
+    display: inline;
+    padding: 1px 10px;
+    border: 1px solid $primary-light-gray;
+    margin-left: 10px;
+    background-color: $primary-darker;
+    color: $primary-light-gray;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+
+    &:hover,
+    &:focus,
+    &-active {
+      background-color: $primary-lighter;
+      border-color: $primary-lighter;
+      color: $light;
+    }
+  }
+}
+

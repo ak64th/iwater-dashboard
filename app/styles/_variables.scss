@@ -16,8 +16,10 @@ $primary-lighter: #0caefd;
 $primary-light-gray: #5e9abe;
 $primary-lightest: #38f7fe;
 $primary-dark: #003063;
+$primary-darker: #092442;
 $dark: #080309;
 $light: #fff;
+$emphasis: #f6c40a;
 
 $body-background: linear-gradient($primary, $dark);
 $header-background: $primary;
@@ -27,3 +29,8 @@ $header-color: #fff;
 
 // layout
 $site-header-height: 2 * $base-line-height;
+
+$widget-header-height: 10px;
+
+$block-map-height: 700px;
+$block-customer-height: 188px;
