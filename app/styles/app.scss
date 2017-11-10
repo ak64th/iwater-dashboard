@@ -98,18 +98,18 @@ body {
 }
 
 .block-3 {
-  height: 222px;
-  padding-top: 27px;
+  height: $block-installation-height;
+  padding-top: $block-installation-padding-top;
 }
 
 .block-4 {
-  height: 398px;
-  padding-top: 30px;
+  height: $block-service-height;
+  padding-top: $block-service-padding-top;
 }
 
 .block-5 {
-  height: 268px;
-  padding-top: 30px;
+  height: $block-sales-height;
+  padding-top: $block-sales-padding-top;
 }
 
 .panel-control {
@@ -247,7 +247,6 @@ body {
     font-size: 14px;
 
     &:hover,
-    &:focus,
     &-active {
       background-color: $primary-lighter;
       border-color: $primary-lighter;
@@ -256,3 +255,7 @@ body {
   }
 }
 
+.installation-chart-container {
+  height: $block-installation-height - $block-installation-padding-top - 50px;
+  margin-top: 50px;
+}
