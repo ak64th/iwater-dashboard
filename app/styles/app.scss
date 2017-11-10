@@ -201,9 +201,40 @@ body {
 .device-summary-item {
   width: 45%;
   height: 48px;
-  border: dashed 1px $primary;
   margin: 10px;
   float: left;
+}
+
+.device-summary-badge {
+  width: 66px;
+  height: 100%;
+  background: rgba($primary-lighter, 0.35);
+  border-radius: 1px;
+  float: left;
+
+  &-icon {
+    display: block;
+    margin: auto;
+  }
+}
+
+.device-summary-text {
+  padding-left: 20px;
+  color: rgba($light, 0.6);
+  float: left;
+
+  > div {
+    padding-top: 2px;
+  }
+
+  .highlight {
+    color: $emphasis;
+    font-size: 20px;
+  }
+
+  .secondary {
+    color: rgba($light, 0.8);
+  }
 }
 
 .customer-chart-container {
