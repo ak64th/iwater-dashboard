@@ -30,7 +30,8 @@ $header-color: #fff;
 // layout
 $site-header-height: 2 * $base-line-height;
 
-$widget-header-height: 10px;
+$widget-header-margin-top: 10px;
+$widget-header-height: $widget-header-margin-top + $base-line-height;
 
 $block-map-height: 700px;
 $block-customer-height: 188px;

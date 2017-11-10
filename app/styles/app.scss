@@ -172,7 +172,7 @@ body {
     @include scut-color-swap($primary-lightest, $light);
 
     position: absolute;
-    top: $widget-header-height;
+    top: $widget-header-margin-top;
     right: 40px;
     cursor: pointer;
     text-decoration: none;
@@ -180,7 +180,7 @@ body {
 }
 
 .widget-header {
-  margin-top: $widget-header-height;
+  margin-top: $widget-header-margin-top;
   margin-left: 10px;
   color: $primary-lightest;
   cursor: default;
@@ -239,7 +239,7 @@ body {
 
 .customer-chart-container {
   width: 100%;
-  height: $block-customer-height - $base-line-height - $widget-header-height;
+  height: $block-customer-height - $base-line-height - $widget-header-margin-top;
 }
 
 .install-total {
@@ -289,4 +289,12 @@ body {
 .installation-chart-container {
   height: $block-installation-height - $block-installation-padding-top - 50px;
   margin-top: 50px;
+}
+
+.service-chart-container {
+  height: $block-service-height - $block-service-padding-top - $widget-header-height;
+}
+
+.sales-chart-container {
+  height: $block-sales-height - $block-sales-padding-top - $widget-header-height;
 }
