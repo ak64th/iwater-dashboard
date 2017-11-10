@@ -1,7 +1,8 @@
 let echarts = window.echarts;
 
-const className = 'customer-chart-container';
-const customerChartContainer = document.getElementsByClassName(className)[0];
+const customerChartContainer = document.getElementsByClassName(
+    'customer-chart-container'
+)[0];
 const customerChart = echarts.init(customerChartContainer);
 
 customerChart.setOption({
