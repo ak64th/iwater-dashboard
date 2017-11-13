@@ -29,6 +29,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-util": "^3.0.8",
     "gulp.spritesmith": "^6.5.1",
+    "imgurify": "^2.0.0",
     "normalize-scss": "^7.0.0",
     "scut": "^1.4.0",
     "stylelint": "^8.2.0",
@@ -39,6 +40,12 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "imgurify"
+    ]
   },
   "babel": {
     "presets": [

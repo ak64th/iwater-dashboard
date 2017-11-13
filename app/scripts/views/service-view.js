@@ -2,6 +2,7 @@ import window from 'global/window';
 import document from 'global/document';
 
 import range from '../range';
+import dropImage from '../../images/drop.png';
 
 let echarts = window.echarts;
 
@@ -95,7 +96,7 @@ serviceChart.setOption({
             {
                 type: 'image',
                 style: {
-                    image: 'images/drop.png',
+                    image: dropImage,
                     width: 18,
                     height: 24,
                 },
@@ -105,7 +106,7 @@ serviceChart.setOption({
             {
                 type: 'image',
                 style: {
-                    image: 'images/drop.png',
+                    image: dropImage,
                     width: 18,
                     height: 24,
                 },
@@ -115,7 +116,7 @@ serviceChart.setOption({
             {
                 type: 'image',
                 style: {
-                    image: 'images/drop.png',
+                    image: dropImage,
                     width: 18,
                     height: 24,
                 },

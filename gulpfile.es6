@@ -1,5 +1,4 @@
 import autoprefixer from 'gulp-autoprefixer';
-import babelify from 'babelify';
 import buffer from 'vinyl-buffer';
 import Browserify from 'browserify';
 import {create as createBrowserSync} from 'browser-sync';
@@ -60,7 +59,7 @@ const bundleScripts = (watch = false) => {
         entries: `${PATH.SCRIPTS}/app.js`,
     };
     const _bundle = (b) => {
-        return b.transform([babelify])
+        return b
             .bundle().on('error', (error) => {
                 gutil.log(error.toString());
                 browserSync.notify('Browserify Error');
