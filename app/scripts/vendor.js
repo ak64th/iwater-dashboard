@@ -1,3 +1,7 @@
-// bundle all vendor libs and don't handle them during dev
-window.echarts = require('echarts');
+// polyfills
+require('babel-polyfill');
+require('whatwg-fetch');
+
+// bundle echarts with map data and export to global
+require('global/window').echarts = require('echarts');
 require('echarts/map/js/china');

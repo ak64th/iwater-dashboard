@@ -50,7 +50,9 @@
     "safari >= 7"
   ],
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "echarts": "^3.7.2",
-    "global": "^4.3.2"
+    "global": "^4.3.2",
+    "whatwg-fetch": "^2.0.3"
   }
 }
