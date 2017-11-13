@@ -1,4 +1,5 @@
-let range = (n) => Array.from(new Array(n).keys());
+import range from '../range';
+
 let echarts = window.echarts;
 
 const installationChartContainer = document.getElementsByClassName(
