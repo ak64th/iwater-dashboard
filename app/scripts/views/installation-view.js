@@ -52,6 +52,16 @@ installationChart.setOption({
         },
         axisLine: {show: false},
     },
+    tooltip: {
+        trigger: 'axis',
+        show: true,
+        formatter: '{b}装机{c}台',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        textStyle: {
+            color: '#47d3e2',
+            fontSize: 10,
+        }
+    },
     series: {
         type: 'line',
         name: 'installation',
