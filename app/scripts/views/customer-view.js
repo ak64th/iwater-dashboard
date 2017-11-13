@@ -9,8 +9,8 @@ customerChart.setOption({
     title: [
         {
             text: '年龄比例',
-            top: 70,
-            left: 45,
+            top: 80,
+            left: 55,
             textStyle: {
                 color: '#fff',
                 fontSize: 14,
@@ -19,8 +19,8 @@ customerChart.setOption({
         },
         {
             text: '性别比例',
-            top: 70,
-            left: 175,
+            top: 80,
+            left: 185,
             textStyle: {
                 color: '#fff',
                 fontSize: 14,
@@ -29,8 +29,8 @@ customerChart.setOption({
         },
         {
             text: '教育程度',
-            top: 70,
-            left: 305,
+            top: 80,
+            left: 315,
             textStyle: {
                 color: '#fff',
                 fontSize: 14,
@@ -39,8 +39,8 @@ customerChart.setOption({
         },
         {
             text: '购买方式',
-            top: 70,
-            left: 435,
+            top: 80,
+            left: 445,
             textStyle: {
                 color: '#fff',
                 fontSize: 14,
@@ -51,8 +51,8 @@ customerChart.setOption({
     legend: [
         {
             name: 'age',
-            top: 90,
-            left: 35,
+            top: 100,
+            left: 45,
             width: 120,
             itemWidth: 10,
             itemHeight: 10,
@@ -66,8 +66,8 @@ customerChart.setOption({
         },
         {
             name: 'gender',
-            top: 90,
-            left: 175,
+            top: 100,
+            left: 185,
             width: 120,
             itemWidth: 10,
             itemHeight: 10,
@@ -81,8 +81,8 @@ customerChart.setOption({
         },
         {
             name: 'education',
-            top: 90,
-            left: 285,
+            top: 100,
+            left: 295,
             width: 120,
             itemWidth: 10,
             itemHeight: 10,
@@ -96,15 +96,15 @@ customerChart.setOption({
         },
         {
             name: 'purchase',
-            top: 90,
-            left: 425,
+            top: 100,
+            left: 435,
             width: 120,
             itemWidth: 10,
             itemHeight: 10,
             itemGap: 5,
             orient: 'horizontal',
             textStyle: {
-                color: '#999',
+                color: '#d0d0d0',
                 fontSize: 12,
             },
             data: ['线下', '线上'],
@@ -115,7 +115,7 @@ customerChart.setOption({
             name: 'age',
             type: 'pie',
             radius: [25, 35],
-            center: [80, 35],
+            center: [90, 40 ],
             legendHoverLink: true,
             hoverAnimation: false,
             label: {
@@ -166,7 +166,7 @@ customerChart.setOption({
             name: 'gender',
             type: 'pie',
             radius: [25, 35],
-            center: [210, 35],
+            center: [220, 40],
             legendHoverLink: true,
             hoverAnimation: false,
             label: {
@@ -199,7 +199,7 @@ customerChart.setOption({
             name: 'education',
             type: 'pie',
             radius: [25, 35],
-            center: [340, 35],
+            center: [350, 40],
             legendHoverLink: true,
             hoverAnimation: false,
             label: {
@@ -250,7 +250,7 @@ customerChart.setOption({
             name: 'purchase',
             type: 'pie',
             radius: [25, 35],
-            center: [470, 35],
+            center: [480, 40],
             legendHoverLink: true,
             hoverAnimation: false,
             label: {
