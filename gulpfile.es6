@@ -9,6 +9,7 @@ import gulp from 'gulp';
 import gulpSequence from 'gulp-sequence';
 import gutil from 'gulp-util';
 import image from 'gulp-image';
+import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
 import sourceMaps from 'gulp-sourcemaps';
@@ -65,7 +66,7 @@ const bundleScripts = (watch = false) => {
                 browserSync.notify('Browserify Error');
                 return b.emit('end');
             })
-            .pipe(source('app.js'))
+            .pipe(source('tahoe-bi.js'))
             .pipe(buffer())
             .pipe(sourceMaps.init({loadMaps: true}))
             .pipe(sourceMaps.write('./'))
@@ -96,6 +97,7 @@ gulp.task('style', () => {
         .pipe(sass(eyeglass()))
         .on('error', sass.logError)
         .pipe(autoprefixer())
+        .pipe(rename('tahoe-bi.css'))
         .pipe(sourceMaps.write('./'))
         .pipe(gulp.dest(PATH.CSS))
         .pipe(browserSync.stream());
