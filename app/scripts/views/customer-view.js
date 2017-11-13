@@ -1,3 +1,6 @@
+import window from 'global/window';
+import document from 'global/document';
+
 let echarts = window.echarts;
 
 const customerChartContainer = document.getElementsByClassName(

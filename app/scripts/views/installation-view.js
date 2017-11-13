@@ -1,3 +1,6 @@
+import window from 'global/window';
+import document from 'global/document';
+
 import range from '../range';
 
 let echarts = window.echarts;

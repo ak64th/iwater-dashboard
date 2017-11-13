@@ -50,6 +50,7 @@
     "safari >= 7"
   ],
   "dependencies": {
-    "echarts": "^3.7.2"
+    "echarts": "^3.7.2",
+    "global": "^4.3.2"
   }
 }
