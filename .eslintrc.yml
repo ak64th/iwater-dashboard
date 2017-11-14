@@ -22,4 +22,8 @@ rules:
   semi:
     - error
     - always
+  require-jsdoc: off
   compat/compat: error
+settings:
+  polyfills:
+    - fetch
