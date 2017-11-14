@@ -33,7 +33,7 @@ salesChart.setOption({
         {
             text: '城市分布',
             top: 0,
-            left: 380,
+            left: 370,
             textStyle: {
                 color: '#4fa7b7',
                 fontSize: 14,
@@ -68,7 +68,7 @@ salesChart.setOption({
         },
         {
             top: 25,
-            left: 380,
+            left: 370,
             width: 200,
             height: 150,
             containLabel: true,
@@ -102,7 +102,7 @@ salesChart.setOption({
         {
             gridIndex: 1,
             type: 'category',
-            data: ['鹰潭', '菏泽', '余江', '杭州', '淮南'],
+            data: ['东营', '北京', '上海', '临汾', '鹰潭'],
             axisLabel: {
                 color: '#fff',
                 align: 'right',
@@ -157,7 +157,9 @@ salesChart.setOption({
         },
         {
             type: 'bar',
+            z: 3,
             barWidth: 8,
+            barMinHeight: 3,
             name: 'sales-channel',
             xAxisIndex: 0,
             yAxisIndex: 0,
@@ -167,10 +169,17 @@ salesChart.setOption({
                     barBorderRadius: 5,
                 },
             },
-            data: [12, 43, 22, 15, 23],
+            label: {
+                emphasis: {
+                    show: true,
+                    position: 'right',
+                },
+            },
+            data: [280, 100, 15, 10, 20],
         },
         {
             type: 'bar',
+            z: 2,
             xAxisIndex: 0,
             yAxisIndex: 0,
             barWidth: 10,
@@ -185,12 +194,14 @@ salesChart.setOption({
                 },
             },
             barGap: '-110%',
-            data: [50, 50, 50, 50, 50],
+            data: [300, 300, 300, 300, 300],
             animation: false,
         },
         {
             type: 'bar',
+            z: 3,
             barWidth: 8,
+            barMinHeight: 3,
             name: 'sales-city',
             xAxisIndex: 1,
             yAxisIndex: 1,
@@ -200,10 +211,17 @@ salesChart.setOption({
                     barBorderRadius: 5,
                 },
             },
-            data: [42, 33, 12, 25, 43],
+            label: {
+                emphasis: {
+                    show: true,
+                    position: 'right',
+                },
+            },
+            data: [5, 8, 12, 30, 370],
         },
         {
             type: 'bar',
+            z: 2,
             xAxisIndex: 1,
             yAxisIndex: 1,
             barWidth: 10,
@@ -218,7 +236,7 @@ salesChart.setOption({
                 },
             },
             barGap: '-110%',
-            data: [50, 50, 50, 50, 50],
+            data: [400, 400, 400, 400, 400],
             animation: false,
         },
     ],

@@ -58,7 +58,7 @@ serviceChart.setOption({
                 color: '#d0d0d0',
                 fontSize: 12,
             },
-            data: ['安装', '换新', '维修', '其他'],
+            data: ['安装', '换芯', '维修', '其他'],
         },
         {
             name: 'service-region',
@@ -73,7 +73,7 @@ serviceChart.setOption({
                 color: '#999',
                 fontSize: 12,
             },
-            data: ['鹰潭', '余江', '杭州', '淮南'],
+            data: ['鹰潭', '临汾', '上海', '其他'],
         },
         {
             name: 'service-delay',
@@ -190,7 +190,7 @@ serviceChart.setOption({
             data: [
                 {
                     name: '安装',
-                    value: 65,
+                    value: 83,
                     itemStyle: {
                         normal: {
                             color: '#47d3e2',
@@ -198,7 +198,7 @@ serviceChart.setOption({
                     },
                 },
                 {
-                    name: '换新',
+                    name: '换芯',
                     value: 15,
                     itemStyle: {
                         normal: {
@@ -208,7 +208,7 @@ serviceChart.setOption({
                 },
                 {
                     name: '维修',
-                    value: 10,
+                    value: 1,
                     itemStyle: {
                         normal: {
                             color: '#699090',
@@ -217,7 +217,7 @@ serviceChart.setOption({
                 },
                 {
                     name: '其他',
-                    value: 10,
+                    value: 0,
                     itemStyle: {
                         normal: {
                             color: '#265299',
@@ -241,7 +241,7 @@ serviceChart.setOption({
             data: [
                 {
                     name: '鹰潭',
-                    value: 40,
+                    value: 88,
                     itemStyle: {
                         normal: {
                             color: '#47d3e2',
@@ -249,8 +249,8 @@ serviceChart.setOption({
                     },
                 },
                 {
-                    name: '余江',
-                    value: 45,
+                    name: '临汾',
+                    value: 7,
                     itemStyle: {
                         normal: {
                             color: '#3b395e',
@@ -258,8 +258,8 @@ serviceChart.setOption({
                     },
                 },
                 {
-                    name: '杭州',
-                    value: 40,
+                    name: '上海',
+                    value: 3,
                     itemStyle: {
                         normal: {
                             color: '#699090',
@@ -267,8 +267,8 @@ serviceChart.setOption({
                     },
                 },
                 {
-                    name: '淮南',
-                    value: 15,
+                    name: '其他',
+                    value: 2,
                     itemStyle: {
                         normal: {
                             color: '#265299',
@@ -292,7 +292,7 @@ serviceChart.setOption({
             data: [
                 {
                     name: '12小时',
-                    value: 15,
+                    value: 23,
                     itemStyle: {
                         normal: {
                             color: '#47d3e2',
@@ -301,7 +301,7 @@ serviceChart.setOption({
                 },
                 {
                     name: '24小时',
-                    value: 15,
+                    value: 43,
                     itemStyle: {
                         normal: {
                             color: '#3b395e',
@@ -310,7 +310,7 @@ serviceChart.setOption({
                 },
                 {
                     name: '36小时',
-                    value: 40,
+                    value: 29,
                     itemStyle: {
                         normal: {
                             color: '#699090',
@@ -319,7 +319,7 @@ serviceChart.setOption({
                 },
                 {
                     name: '更多',
-                    value: 30,
+                    value: 5,
                     itemStyle: {
                         normal: {
                             color: '#265299',

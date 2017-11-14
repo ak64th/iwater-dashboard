@@ -180,7 +180,7 @@ customerChart.setOption({
             data: [
                 {
                     name: '男',
-                    value: 30,
+                    value: 65,
                     itemStyle: {
                         normal: {
                             color: '#47d3e2',
@@ -189,7 +189,7 @@ customerChart.setOption({
                 },
                 {
                     name: '女',
-                    value: 65,
+                    value: 30,
                     itemStyle: {
                         normal: {
                             color: '#007eab',
@@ -264,7 +264,7 @@ customerChart.setOption({
             data: [
                 {
                     name: '线下',
-                    value: 120,
+                    value: 3364,
                     itemStyle: {
                         normal: {
                             color: '#47d3e2',
@@ -273,7 +273,7 @@ customerChart.setOption({
                 },
                 {
                     name: '线上',
-                    value: 35,
+                    value: 6636,
                     itemStyle: {
                         normal: {
                             color: '#3b395e',
