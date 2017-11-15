@@ -132,5 +132,16 @@
 </div>
 <script src="js/vendor.js"></script>
 <script src="js/tahoe-bi.js"></script>
+<script>
+    domready(function () {
+        updateMapView([
+            {
+                name: '大连',
+                value: [121.62, 38.92, 147, 520],
+            },
+        ]);
+        updateServiceView([53, 65, 34, 17, 32, 44, 37, 58, 28, 19, 15]);
+    });
+</script>
 </body>
 </html>
