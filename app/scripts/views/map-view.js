@@ -51,7 +51,7 @@ export function initMapView(root) {
                 type: 'scatter',
                 coordinateSystem: 'geo',
                 data: [],
-                symbolSize: (val) => val[2] / 5,
+                symbolSize: (val) => 2 + Math.max(Math.min(val[2] / 10, 15), 3),
                 label: {
                     normal: {
                         formatter: '{b}',
