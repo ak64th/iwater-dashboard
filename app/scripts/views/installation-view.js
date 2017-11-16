@@ -132,9 +132,9 @@ export function initInstallationView(root) {
     });
 
     const tabControl = root.querySelector('.tab-control');
-    const tabs = tabControl.querySelectorAll('.tab-control-item');
+    const tabs = Array.from(tabControl.querySelectorAll('.tab-control-item'));
     tabs.forEach((el) => {
-        const siblings = Array.from(tabs).filter((s) => s !== el);
+        const siblings = tabs.filter((s) => s !== el);
         el.addEventListener('click', (e) => {
             siblings.forEach((s) => {
                 s.classList.remove('tab-control-item-active');
