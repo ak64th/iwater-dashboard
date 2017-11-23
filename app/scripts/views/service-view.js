@@ -1,10 +1,8 @@
-import window from 'global/window';
-
 import range from '../range';
 import dropImage from '../../images/drop.png';
 
 export function initServiceChart(root) {
-    let echarts = window.echarts;
+    let echarts = global.echarts;
     const container = root.querySelector('.service-chart-container');
     const chart = echarts.init(container);
     chart.setOption({

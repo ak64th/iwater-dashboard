@@ -1,4 +1,3 @@
-import window from 'global/window';
 import range from '../range';
 
 const tabData = {
@@ -69,7 +68,7 @@ const tabData = {
 };
 
 export function initInstallationView(root) {
-    let echarts = window.echarts;
+    let echarts = global.echarts;
     const container = root.querySelector('.installation-chart-container');
     const chart = echarts.init(container);
     chart.setOption({

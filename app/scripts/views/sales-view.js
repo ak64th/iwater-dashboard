@@ -1,7 +1,5 @@
-import window from 'global/window';
-
 export function initSalesView(root) {
-    let echarts = window.echarts;
+    let echarts = global.echarts;
     const container = root.querySelector('.sales-chart-container');
     const chart = echarts.init(container);
     chart.setOption({

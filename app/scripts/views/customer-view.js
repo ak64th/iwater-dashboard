@@ -1,8 +1,5 @@
-import window from 'global/window';
-
-
 export function initCustomerView(root) {
-    let echarts = window.echarts;
+    let echarts = global.echarts;
     const container = root.querySelector('.customer-chart-container');
     const chart = echarts.init(container);
     chart.setOption({
