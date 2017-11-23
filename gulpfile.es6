@@ -1,3 +1,4 @@
+/* eslint-env node */
 import autoprefixer from 'gulp-autoprefixer';
 import buffer from 'vinyl-buffer';
 import Browserify from 'browserify';
@@ -22,7 +23,6 @@ let PATH = {
     DIST: './dist',
 };
 
-PATH.INDEX = `${PATH.APP}/index.html`;
 PATH.SCRIPTS = `${PATH.APP}/scripts`;
 PATH.STYLES = `${PATH.APP}/styles`;
 PATH.IMAGES = `${PATH.APP}/images`;
@@ -34,7 +34,8 @@ PATH.DIST_IMAGES = `${PATH.DIST}/images`;
 gulp.task('clean', () => del([PATH.DIST + '/**/*']));
 
 gulp.task('html', () => {
-    return gulp.src(PATH.INDEX).pipe(gulp.dest(PATH.DIST));
+    return gulp.src(`${PATH.APP}/*.html`)
+        .pipe(gulp.dest(PATH.DIST));
 });
 
 gulp.task('reload-html', ['html'], () => browserSync.reload());
@@ -56,6 +57,7 @@ const bundleScripts = (watch = false) => {
     let b;
     let opts = {
         debug: true,
+        standalone: 'TahoeBI',
         entries: `${PATH.SCRIPTS}/app.js`,
     };
     const _bundle = (b) => {
@@ -131,7 +133,7 @@ gulp.task('build',
 );
 
 gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
-    gulp.watch(PATH.INDEX, ['reload-html']);
+    gulp.watch(`${PATH.APP}/*.html`, ['reload-html']);
     gulp.watch(`${PATH.STYLES}/**/*.{scss,sass}`, ['style']);
 });
 

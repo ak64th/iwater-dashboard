@@ -1,10 +1,11 @@
 @import 'variables';
 
-@mixin corner-highlight-border($width, $height) {
-  // Custom border style
-  $shadow-color: rgba($primary-dark, 0.5);
-
-  border: 1px rgba($primary-light, 0.5) solid;
+// Custom corner-highlight border style
+@mixin corner-highlight-border($width, $height, $corner-color , $border-color, $shadow-color) {
+  // $shadow-color: rgba($dashboard-primary-dark, 0.5);
+  // $border-color: rgba($dashboard-primary-light, 0.5);
+  // $corner-color: $dashboard-primary-light-gray;
+  border: 1px $border-color solid;
   box-shadow: inset 1px 1px $shadow-color, inset -1px -1px $shadow-color;
 
   // Build four little transparent boxes on the corners
@@ -15,7 +16,7 @@
       position: absolute;
       width: $width;
       height: $height;
-      border: solid $primary-light-gray;
+      border: solid $corner-color;
       content: ' ';
     }
   }

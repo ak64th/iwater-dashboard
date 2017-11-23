@@ -7,10 +7,6 @@
 @import 'fonts';
 @import 'globals';
 
-body {
-  background: $body-background;
-}
-
 .app {
   @include scut-clearfix;
 
@@ -18,7 +14,6 @@ body {
   min-height: 960px;
   margin-right: auto;
   margin-left: auto;
-  background: no-repeat url('../images/content-bg.jpg');
 }
 
 .header-bar {
@@ -68,233 +63,12 @@ body {
   padding-top: $site-header-height;
 }
 
-.column-1 {
-  width: 50%;
-  float: left;
+.dashboard {
+  background: $body-background;
 
-  .widget {
-    max-width: 660px;
-  }
-}
-
-.column-2 {
-  width: 50%;
-  padding-left: 25px;
-  float: left;
-
-  .widget {
-    max-width: 600px;
-  }
-}
-
-.block-1 {
-  height: $block-map-height;
-  padding-left: 20px;
-}
-
-.block-2 {
-  height: $block-customer-height;
-  padding-left: 20px;
-}
-
-.block-3 {
-  height: $block-installation-height;
-  padding-top: $block-installation-padding-top;
-}
-
-.block-4 {
-  height: $block-service-height;
-  padding-top: $block-service-padding-top;
-}
-
-.block-5 {
-  height: $block-sales-height;
-  padding-top: $block-sales-padding-top;
-}
-
-.panel-control {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  margin: 15px 20px 5px;
-
-  &-item {
-    @include scut-color-swap($primary-light, $light, 1s);
-
-    display: block;
-    height: 25px;
-    padding-left: 10px;
-    border: 1px solid $primary-light;
-    margin-left: 10px;
-    background: $primary;
-    border-radius: 3px;
-    float: left;
-    outline: none;
-  }
-}
-
-.year-select,
-.region-select {
-  width: 80px;
-  padding-top: 2px;
-  -moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
-  -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
-}
-
-.device-search {
-  display: inline;
-
-  .search-icon {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
+  .app {
+    background: no-repeat url('../images/content-bg.jpg');
   }
 
-  .search-input {
-    padding: 0 20px 0 10px;
-
-    &::placeholder {
-      color: $primary-light-gray;
-    }
-  }
-}
-
-.widget {
-  @include corner-highlight-border(26px, 14px);
-
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: $widget-background;
-
-  .more-link {
-    @include scut-color-swap($primary-lightest, $light);
-
-    position: absolute;
-    top: $widget-header-margin-top;
-    right: 40px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-}
-
-.widget-header {
-  margin-top: $widget-header-margin-top;
-  margin-left: 10px;
-  color: $primary-lightest;
-  cursor: default;
-  user-select: none;
-}
-
-.map-container {
-  width: 545px;
-  height: 463px;
-  margin-left: 40px;
-}
-
-.device-summary-container {
-  width: 100%;
-  height: 167px;
-}
-
-.device-summary-item {
-  width: 45%;
-  height: 48px;
-  margin: 10px;
-  float: left;
-}
-
-.device-summary-badge {
-  width: 66px;
-  height: 100%;
-  background: rgba($primary-lighter, 0.35);
-  border-radius: 1px;
-  float: left;
-
-  &-icon {
-    display: block;
-    margin: auto;
-  }
-}
-
-.device-summary-text {
-  padding-left: 20px;
-  color: rgba($light, 0.6);
-  float: left;
-
-  > div {
-    padding-top: 2px;
-  }
-
-  .highlight {
-    color: $emphasis;
-    font-size: 20px;
-  }
-
-  .secondary {
-    color: rgba($light, 0.8);
-  }
-}
-
-.customer-chart-container {
-  width: 100%;
-  height: $block-customer-height - $base-line-height - $widget-header-margin-top;
-}
-
-.install-total {
-  @include scut-color-swap($primary-light-gray, $light, 1s);
-
-  position: absolute;
-  top: 20px;
-  left: 55px;
-  width: 180px;
-  cursor: default;
-  font-size: 16px;
-  line-height: 20px;
-
-  .highlight {
-    color: $emphasis;
-    font-size: 20px;
-  }
-}
-
-.tab-control {
-  position: absolute;
-  top: 16px;
-  left: 200px;
-  display: inline-block;
-  color: $primary-light-gray;
-
-  &-item {
-    display: inline;
-    padding: 1px 10px;
-    border: 1px solid $primary-light-gray;
-    margin-left: 10px;
-    background-color: $primary-darker;
-    color: $primary-light-gray;
-    cursor: pointer;
-    float: left;
-    font-size: 14px;
-
-    &:hover,
-    &-active {
-      background-color: $primary-lighter;
-      border-color: $primary-lighter;
-      color: $light;
-    }
-  }
-}
-
-.installation-chart-container {
-  height: $block-installation-height - $block-installation-padding-top - 50px;
-  margin-top: 50px;
-}
-
-.service-chart-container {
-  height: $block-service-height - $block-service-padding-top - $widget-header-height;
-}
-
-.sales-chart-container {
-  height: $block-sales-height - $block-sales-padding-top - $widget-header-height;
+  @import 'dashboard';
 }
