@@ -8,6 +8,9 @@ extends:
 plugins:
   - compat
 parserOptions:
+  emcaVersion: 6
+  ecmaFeatures:
+    experimentalObjectRestSpread: true
   sourceType: module
 rules:
   indent:
