@@ -7,14 +7,28 @@ $base-unit: 'em';
 $base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $normalize-vertical-rhythm: true;
 
+// site layout
 $container-width: scut-em(1336px, $base-font-size);
+$site-header-height: 2 * $base-line-height;
+$widget-header-margin-top: 10px;
+$widget-header-height: $widget-header-margin-top + $base-line-height;
 
+// site color palette
 $primary: #263372;
 $dark: #080309;
 $light: #fff;
-$body-background: linear-gradient($primary, $dark);
 $header-background: $primary;
 $header-color: #fff;
+$body-background: #fafafa;
+
+// datatable palette
+$table-header-background: #edf0f7;
+$table-header-color: #2a2a2a;
+$table-body-color: #333;
+$table-active-color: #49b5c9;
+$table-info-color: #999;
+$table-pager-color: #666;
+$table-pager-border-color: #c3c3c3;
 
 // dashboard color palette
 $dashboard-primary: $primary;
@@ -27,11 +41,7 @@ $dashboard-primary-darker: #092442;
 $dashboard-widget-background: rgba(#121044, 0.6);
 $dashboard-emphasis: #f6c40a;
 
-// site layout
-$site-header-height: 2 * $base-line-height;
-
-$widget-header-margin-top: 10px;
-$widget-header-height: $widget-header-margin-top + $base-line-height;
+$dashboard-body-background: linear-gradient($primary, $dark);
 
 // dashboard layout
 $block-map-height: 700px;

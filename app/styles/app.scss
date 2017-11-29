@@ -1,11 +1,17 @@
 // Vendor
 @import 'normalize';
 @import 'scut';
+@import 'datatables';
+
 // Setup
 @import 'mixins';
 @import 'variables';
 @import 'fonts';
 @import 'globals';
+
+body {
+  background: $body-background;
+}
 
 .app {
   @include scut-clearfix;
@@ -60,15 +66,66 @@
 
 .content {
   position: relative;
-  padding-top: $site-header-height;
+  padding: $site-header-height 40px 32px 40px;
+}
+
+.panel-control-bar {
+  width: 100%;
+  height: 80px;
+  padding-top: 32px;
+}
+
+.panel-control {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+
+  select {
+    width: 96px;
+    -moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+    -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+  }
+
+  &-item {
+    display: block;
+    height: 28px;
+    padding-left: 10px;
+    margin-left: 10px;
+    background: #019bc2;
+    border-radius: 3px;
+    color: $light;
+    float: left;
+    outline: none;
+  }
+}
+
+.block {
+  background-color: $light;
+  //box-shadow: inset 1px 1px $dark, inset -1px -1px $dark;
+}
+
+.block-header {
+  color: $dark;
+  cursor: default;
+  user-select: none;
 }
 
 .dashboard {
-  background: $body-background;
+  background: $dashboard-body-background;
 
   .app {
     background: no-repeat url('../images/content-bg.jpg');
   }
 
+  // Override global content padding
+  // Dashboard page has a slightly different layout
+  .content {
+    padding: $site-header-height 0 0 0;
+  }
+
   @import 'dashboard';
+}
+
+.device-list {
+  @import 'device-list';
 }
