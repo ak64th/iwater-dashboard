@@ -3,6 +3,7 @@ import autoprefixer from 'gulp-autoprefixer';
 import buffer from 'vinyl-buffer';
 import Browserify from 'browserify';
 import {create as createBrowserSync} from 'browser-sync';
+import cssnano from 'gulp-cssnano';
 import data from 'gulp-data';
 import del from 'del';
 import eyeglass from 'eyeglass';
@@ -15,9 +16,11 @@ import path from 'path';
 import prettify from 'gulp-jsbeautifier';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
+import size from 'gulp-size';
 import source from 'vinyl-source-stream';
 import sourceMaps from 'gulp-sourcemaps';
 import smith from 'gulp.spritesmith';
+import uglify from 'gulp-uglify';
 import watchify from 'watchify';
 
 const browserSync = createBrowserSync();
@@ -139,6 +142,28 @@ gulp.task('sprite', () => {
     return spriteData;
 });
 
+gulp.task('clean-map', () => del([`${PATH.DIST}/**/*.map`]));
+
+gulp.task('min-scripts', ['clean-map'], () => {
+    return gulp.src([`${PATH.JS}/*.js`, `!${PATH.JS}/*.min.js`])
+        .pipe(sourceMaps.init({loadMaps: false}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(size({title: 'js', showFiles: true}))
+        .pipe(sourceMaps.write('./'))
+        .pipe(gulp.dest(PATH.JS));
+});
+
+gulp.task('min-styles', ['clean-map'], () => {
+    return gulp.src([`${PATH.CSS}/*.css`, `!${PATH.CSS}/*.min.css`])
+        .pipe(sourceMaps.init({loadMaps: false}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(cssnano())
+        .pipe(size({title: 'css', showFiles: true}))
+        .pipe(sourceMaps.write('./'))
+        .pipe(gulp.dest(PATH.CSS));
+});
+
 gulp.task('build',
     gulpSequence(
         'clean',
@@ -147,6 +172,11 @@ gulp.task('build',
         ['image', 'sprite']
     )
 );
+
+gulp.task('compress', gulpSequence(
+    'build',
+    ['min-scripts', 'min-styles']
+));
 
 gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
     gulp.watch(`${PATH.TEMPLATES}/*.{njk,html}`, ['reload-html']);
