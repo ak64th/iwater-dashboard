@@ -112,6 +112,7 @@
 
 {% block script %}
   <script>
+      /* global TahoeBI */
       domready(function () {
           const dashboard = new TahoeBI.DashboardView(document.querySelector('.app'));
           dashboard.updateMapView([
