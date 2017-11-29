@@ -12,6 +12,7 @@ import gutil from 'gulp-util';
 import image from 'gulp-image';
 import nunjucksRender from 'gulp-nunjucks-render';
 import path from 'path';
+import prettify from 'gulp-jsbeautifier';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
@@ -49,6 +50,7 @@ gulp.task('html', () => {
                 path: PATH.TEMPLATES,
             })
         )
+        .pipe(prettify({indent_size: 2}))
         .pipe(gulp.dest(PATH.DIST));
 });
 
