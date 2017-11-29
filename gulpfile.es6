@@ -3,12 +3,15 @@ import autoprefixer from 'gulp-autoprefixer';
 import buffer from 'vinyl-buffer';
 import Browserify from 'browserify';
 import {create as createBrowserSync} from 'browser-sync';
+import data from 'gulp-data';
 import del from 'del';
 import eyeglass from 'eyeglass';
 import gulp from 'gulp';
 import gulpSequence from 'gulp-sequence';
 import gutil from 'gulp-util';
 import image from 'gulp-image';
+import nunjucksRender from 'gulp-nunjucks-render';
+import path from 'path';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import source from 'vinyl-source-stream';
@@ -23,6 +26,7 @@ let PATH = {
     DIST: './dist',
 };
 
+PATH.TEMPLATES = `${PATH.APP}/templates`;
 PATH.SCRIPTS = `${PATH.APP}/scripts`;
 PATH.STYLES = `${PATH.APP}/styles`;
 PATH.IMAGES = `${PATH.APP}/images`;
@@ -31,10 +35,20 @@ PATH.JS = `${PATH.DIST}/js`;
 PATH.CSS = `${PATH.DIST}/css`;
 PATH.DIST_IMAGES = `${PATH.DIST}/images`;
 
-gulp.task('clean', () => del([PATH.DIST + '/**/*']));
+gulp.task('clean', () => del([`${PATH.DIST}/**/*`]));
 
 gulp.task('html', () => {
-    return gulp.src(`${PATH.APP}/*.html`)
+    return gulp.src(`${PATH.TEMPLATES}/!(_)*.njk`)
+        .pipe(
+            data((file) => Object.assign({
+                bodyClass: path.basename(file.path, '.njk'),
+            }))
+        )
+        .pipe(
+            nunjucksRender({
+                path: PATH.TEMPLATES,
+            })
+        )
         .pipe(gulp.dest(PATH.DIST));
 });
 
@@ -133,7 +147,7 @@ gulp.task('build',
 );
 
 gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
-    gulp.watch(`${PATH.APP}/*.html`, ['reload-html']);
+    gulp.watch(`${PATH.TEMPLATES}/*.{njk,html}`, ['reload-html']);
     gulp.watch(`${PATH.STYLES}/**/*.{scss,sass}`, ['style']);
 });
 

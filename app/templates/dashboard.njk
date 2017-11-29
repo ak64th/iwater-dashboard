@@ -1,0 +1,130 @@
+{% extends "_layout.njk" %}
+
+{% block title %}
+  <title>业务概况</title>
+{% endblock %}
+
+{% block breadcumb %}
+  <div>业务概况</div>
+{% endblock %}
+
+{% block content %}
+  <div class="column column-1">
+    <div class="map-view">
+      <form class="panel-control">
+        <select name="year" class="panel-control-item year-select" title="year">
+          <option value="2017">2017</option>
+        </select>
+        <select class='panel-control-item region-select' name="region" title="region">
+          <option value="">全国</option>
+        </select>
+        <div class="device-search">
+          <label class="icon-magnifier search-icon"></label>
+          <input type="search" class='panel-control-item search-input' name="search"
+                 placeholder="输入设备编号查询">
+        </div>
+      </form>
+      <div class="map-container"></div>
+      <div class="device-summary-container">
+        <div class="device-summary-item">
+          <div class="device-summary-badge">
+            <i class="icon-online device-summary-badge-icon"></i>
+          </div>
+          <div class="device-summary-text">
+            <div>
+              <span class="highlight">176台</span> <span class="secondary">在线</span>
+            </div>
+            <div>共425台，在线占比41.4%</div>
+          </div>
+        </div>
+        <div class="device-summary-item">
+          <div class="device-summary-badge">
+            <i class="icon-star device-summary-badge-icon"></i>
+          </div>
+          <div class="device-summary-text">
+            <div>
+              <span class="highlight">170件</span> <span class="secondary">满意度</span>
+            </div>
+            <div>共172件，满意占比98.8%</div>
+          </div>
+        </div>
+        <div class="device-summary-item">
+          <div class="device-summary-badge">
+            <i class="icon-repair device-summary-badge-icon"></i>
+          </div>
+          <div class="device-summary-text">
+            <div>
+              <span class="highlight">0台</span> <span class="secondary">故障</span>
+            </div>
+            <div>共425台，故障占比0%</div>
+          </div>
+        </div>
+        <div class="device-summary-item">
+          <div class="device-summary-badge">
+            <i class="icon-return device-summary-badge-icon"></i>
+          </div>
+          <div class="device-summary-text">
+            <div>
+              <span class="highlight">2台</span> <span class="secondary">退机</span>
+            </div>
+            <div>共425台，退机占比0.47%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="customer-view">
+      <div class="widget">
+        <header class="widget-header">用户画像</header>
+        <a href="#" class="more-link">更多</a>
+        <div class="customer-chart-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="column column-2">
+    <div class="installation-view">
+      <div class="widget">
+        <div class="installation-view-header">
+          <div class="install-total">总装机量 <span class="highlight">425</span> 台</div>
+          <div class="tab-control">
+            <div class="tab-control-item tab-control-item-active" data-tab="by-date">时间</div>
+            <div class="tab-control-item" data-tab="by-model">型号</div>
+          </div>
+        </div>
+        <div class="installation-chart-container"></div>
+        <a href="#" class="more-link">更多</a>
+      </div>
+    </div>
+    <div class="service-view">
+      <div class="widget">
+        <header class="widget-header">服务信息</header>
+        <div class="service-chart-container"></div>
+        <a href="#" class="more-link">更多</a>
+      </div>
+    </div>
+    <div class="sales-view">
+      <div class="widget">
+        <header class="widget-header">渠道分析</header>
+        <div class="sales-chart-container"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      domready(function () {
+          const dashboard = new TahoeBI.DashboardView(document.querySelector('.app'));
+          dashboard.updateMapView([
+              {
+                  name: '大连',
+                  value: [121.62, 38.92, 147, 520],
+              },
+          ]);
+          dashboard.updateServiceView([53, 65, 34, 17, 32, 44, 37, 58, 28, 19, 15]);
+          dashboard.updateSalesView({
+              cities: ['东营', '北京', '上海', '临汾', '鹰潭'],
+              values: [5, 8, 12, 30, 370]
+          })
+      });
+  </script>
+{% endblock %}

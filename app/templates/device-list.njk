@@ -1,0 +1,50 @@
+{% extends "_layout.njk" %}
+
+{% block title %}
+  <title>设备信息</title>
+{% endblock %}
+
+{% block breadcumb %}
+  <div>业务概况/设备信息</div>
+{% endblock %}
+
+{% block content %}
+  <div class="panel-control-bar">
+    <form class="panel-control">
+      <select name="year" class="panel-control-item year-select" title="year">
+        <option value="2017">2017</option>
+      </select>
+      <select class='panel-control-item region-select' name="region" title="region">
+        <option value="">全国</option>
+      </select>
+    </form>
+  </div>
+  <div class="device-summary-view block">
+    <div class="chart-container"></div>
+  </div>
+  <div class="purified-view block"></div>
+  <div class="device-list-view block">
+    <table class="datatable device-list-table">
+    </table>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      domready(function () {
+          const deviceListView = new TahoeBI.DeviceListView(
+              document.querySelector('.app')
+          );
+          deviceListView.updateDeviceListTable(
+              new Array(20).fill([
+                  '<a href="#">DID-201712103323328342</a>',
+                  'ZS-J05W',
+                  '按时租赁',
+                  '开始时间：2017-10-18<br>结束时间：2018-12-10',
+                  '正常',
+                  '正常',
+              ])
+          );
+      })
+  </script>
+{% endblock %}
