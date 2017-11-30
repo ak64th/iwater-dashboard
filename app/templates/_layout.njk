@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/tahoe-bi.css" media="screen" charset="utf-8">
   <link rel="stylesheet" href="css/sprite.css" media="screen" charset="utf-8">
 </head>
-<body class="{{ bodyClass }}">
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 <div class="app">
   <header class="header-bar">
     <div class="site-header">
