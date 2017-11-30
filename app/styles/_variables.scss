@@ -4,8 +4,26 @@
 $base-font-size: 14px;
 $base-line-height: 20px;
 $base-unit: 'em';
-$base-font-family: -apple-system, 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans CN', 'Source Han Sans SC', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif;
-
+$base-font-family: (
+  -apple-system,
+  'Helvetica Neue',
+  Helvetica,
+  'Nimbus Sans L',
+  Arial,
+  'Liberation Sans',
+  'PingFang SC',
+  'Hiragino Sans GB',
+  'Noto Sans CJK SC',
+  'Source Han Sans CN',
+  'Source Han Sans SC',
+  'Microsoft YaHei',
+  'Wenquanyi Micro Hei',
+  'WenQuanYi Zen Hei',
+  'ST Heiti',
+  SimHei,
+  'WenQuanYi Zen Hei Sharp',
+  sans-serif
+);
 $normalize-vertical-rhythm: true;
 
 // site layout
