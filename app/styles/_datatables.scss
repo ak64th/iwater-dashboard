@@ -180,7 +180,7 @@
   height: 0;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
-  content: "";
+  content: '';
   opacity: 0.2;
 }
 
@@ -208,5 +208,5 @@
 .dataTable-bottom::after {
   display: table;
   clear: both;
-  content: " ";
+  content: ' ';
 }
