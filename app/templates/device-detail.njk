@@ -1,0 +1,48 @@
+{% extends "_layout.njk" %}
+
+{% set bodyClass = "device-detail" %}
+
+{% block title %}
+  <title>设备详情</title>
+{% endblock %}
+
+{% block breadcumb %}
+  <div>业务概况/设备信息/设备详情</div>
+{% endblock %}
+
+{% block content %}
+  <div class="column">
+    <div class="block info-view">
+      <h4 class="block-header">基本信息</h4>
+      <table class="info-table">
+        <thead>
+        <tr>
+          <th>设备名</th>
+          <th>设备编号</th>
+          <th>设备型号</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ZS-J05G</td>
+          <td>鹰潭电信001</td>
+          <td>864811035477988</td>
+        </tr>
+        </tbody>
+      </table>
+      物理地址：<span>江西省鹰潭市月湖区交通路广场1号</span>
+    </div>
+    <div class="block operation-view">
+      <h4 class="block-header">基本操作</h4>
+    </div>
+    <div class="block status-view">
+      <h4 class="block-header">设备状态</h4>
+    </div>
+  </div>
+  <div class="column">
+    <div class="block location-view"></div>
+    <div class="block customer-view">
+      <h4 class="block-header">客户信息</h4>
+    </div>
+  </div>
+{% endblock %}

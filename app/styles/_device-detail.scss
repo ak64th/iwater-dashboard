@@ -1,0 +1,53 @@
+.column {
+  width: 50%;
+  padding-top: 20px;
+  float: left;
+
+  &:first-child {
+    max-width: 560px;
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    max-width: 686px;
+  }
+}
+
+.info-view {
+  height: 172px;
+}
+
+.info-table {
+  width: 100%;
+  margin: 20px auto;
+
+  th,
+  td {
+    padding: 5px 0;
+  }
+
+  th {
+    font-weight: normal;
+    text-align: left;
+  }
+
+  td {
+    font-size: 20px;
+  }
+}
+
+.operation-view {
+  height: 146px;
+}
+
+.status-view {
+  height: 806px;
+}
+
+.location-view {
+  height: 328px;
+}
+
+.customer-view {
+  height: 806px;
+}
