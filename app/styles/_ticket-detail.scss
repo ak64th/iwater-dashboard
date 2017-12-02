@@ -1,0 +1,31 @@
+@import 'variables';
+
+.info-view {
+  min-height: 304px;
+  padding-top: 0;
+  margin: 30px 0 20px;
+}
+
+.info {
+  margin-top: 10px;
+}
+
+.info-field {
+  display: inline-block;
+  min-width: 33%;
+  line-height: 32px;
+
+  &-name,
+  &-value {
+    display: inline-block;
+  }
+
+  &-name::after {
+    content: '：';
+  }
+}
+
+.operation-view {
+  min-height: 493px;
+  padding: 34px 0 10px;
+}

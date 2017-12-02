@@ -1,0 +1,102 @@
+{% extends "_layout.njk" %}
+
+{% set bodyClass = "ticket-detail" %}
+
+{% block title %}
+  <title>服务单信息</title>
+{% endblock %}
+
+{% block breadcumb %}
+  <div>业务概况/服务单/服务单信息</div>
+{% endblock %}
+
+{% block content %}
+  <div class="info-view block">
+    <div class="step-wizard">
+      <div class="step-wizard-step">
+        <div class="step-wizard-tag">
+          <i class="step-wizard-icon icon-step-new"></i>
+        </div>
+        <div class="step-wizard-text">新建</div>
+      </div>
+      <div class="step-wizard-step">
+        <div class="step-wizard-tag">
+          <i class="step-wizard-icon icon-step-confirm"></i>
+        </div>
+        <div class="step-wizard-text">处理人确认</div>
+      </div>
+      <div class="step-wizard-step step-wizard-step-active">
+        <div class="step-wizard-tag">
+          <i class="step-wizard-icon icon-step-receive"></i>
+        </div>
+        <div class="step-wizard-text">领取物料</div>
+      </div>
+      <div class="step-wizard-step">
+        <div class="step-wizard-tag">
+          <i class="step-wizard-icon icon-step-repair"></i>
+        </div>
+        <div class="step-wizard-text">维护完成</div>
+      </div>
+      <div class="step-wizard-step">
+        <div class="step-wizard-tag">
+          <i class="step-wizard-icon icon-step-finished"></i>
+        </div>
+        <div class="step-wizard-text">已完成</div>
+      </div>
+    </div>
+    <h4 class="block-header">服务单信息</h4>
+    <div class="info">
+      <div class="info-field">
+        <div class="info-field-name">服务单编号</div>
+        <div class="info-field-value">ST-2017101100123</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">服务单类型</div>
+        <div class="info-field-value">维护单</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">状态</div>
+        <div class="info-field-value">领取物料</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">创建时间</div>
+        <div class="info-field-value">2017-12-12 12:38:24</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">处理时间</div>
+        <div class="info-field-value">2017-12-12 14:38:24</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">处理人员</div>
+        <div class="info-field-value">某某某</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">客户姓名</div>
+        <div class="info-field-value">某某某</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">客户电话</div>
+        <div class="info-field-value">15832914439</div>
+      </div>
+      <div class="info-field">
+        <div class="info-field-name">客户地址</div>
+        <div class="info-field-value">北京市某某区某某街道某某小区某某村某非常非常非常非常非常非常长的地址</div>
+      </div>
+    </div>
+  </div>
+  <div class="operation-view block">
+    <table class="operation-table datatable">
+    </table>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      const appContainer = document.querySelector('.app');
+      /* global TahoeBI */
+      domready(function () {
+          const ticketDetailView = new TahoeBI.TicketDetailView(appContainer);
+          ticketDetailView.datatable.setMessage('等待载入数据...');
+      })
+  </script>
+{% endblock %}
