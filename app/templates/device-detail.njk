@@ -34,6 +34,20 @@
     </div>
     <div class="block operation-view">
       <h4 class="block-header">基本操作</h4>
+      <div class="operation-panel">
+        <a class="operation-button">
+          <i class="operation-icon icon-op-power"></i>
+          关机
+        </a>
+        <a class="operation-button">
+          <i class="operation-icon icon-op-screen"></i>
+          开机
+        </a>
+        <a class="operation-button">
+          <i class="operation-icon icon-op-wash"></i>
+          冲洗
+        </a>
+      </div>
     </div>
     <div class="block status-view">
       <h4 class="block-header">设备状态</h4>
@@ -45,4 +59,14 @@
       <h4 class="block-header">客户信息</h4>
     </div>
   </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      domready(function () {
+          const deviceDetailView = new TahoeBI.DeviceDetailView(
+              document.querySelector('.app')
+          );
+      });
+  </script>
 {% endblock %}

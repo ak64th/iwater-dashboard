@@ -40,6 +40,31 @@
   height: 146px;
 }
 
+.operation-panel {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 59px;
+  margin: 28px auto;
+  text-align: center;
+}
+
+.operation-button {
+  display: inline-block;
+  width: 79px;
+  height: 100%;
+  margin: 0 36px;
+  background: #f4f4f4;
+  color: #666;
+  cursor: pointer;
+  user-select: none;
+}
+
+.operation-icon {
+  display: block;
+  margin: 5px auto 0;
+}
+
 .status-view {
   height: 806px;
 }
