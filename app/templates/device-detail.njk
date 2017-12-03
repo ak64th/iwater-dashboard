@@ -51,21 +51,77 @@
     </div>
     <div class="block status-view">
       <h4 class="block-header">设备状态</h4>
+      <div class="info">
+        <div class="info-field">
+          <div class="info-field-name">设备状态</div>
+          <div class="info-field-value">正常</div>
+        </div>
+        <div class="info-field">
+          <div class="info-field-name">工作状态</div>
+          <div class="info-field-value">暂停</div>
+        </div>
+        <div class="info-field">
+          <div class="info-field-name">故障码</div>
+          <div class="info-field-value">0x33</div>
+        </div>
+      </div>
+      <h4 class="block-header">设备数据</h4>
     </div>
   </div>
   <div class="column">
-    <div class="block location-view"></div>
+    <div class="block location-view">
+      <h4 class="block-header">设备经纬度</h4>
+      <div class="map-container"></div>
+    </div>
     <div class="block customer-view">
       <h4 class="block-header">客户信息</h4>
+      <div class="info">
+        <div class="info">
+          <div class="info-field">
+            <div class="info-field-name">姓名</div>
+            <div class="info-field-value">某某某</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">地址</div>
+            <div class="info-field-value">上海市某某区某某街道某某小区某某楼某某某</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">公司</div>
+            <div class="info-field-value">上海市某某有限餐饮管理股份有限公司</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">手机</div>
+            <div class="info-field-value">18612344321</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">电话</div>
+            <div class="info-field-value">021-52889898</div>
+          </div>
+        </div>
+        <a class="button">查询用户信息</a>
+        <table class="datatable activation-table"></table>
+      </div>
     </div>
   </div>
 {% endblock %}
 
 {% block script %}
+  <script type="text/javascript"
+          src="http://api.map.baidu.com/api?v=2.0&ak=oqxSiKOPPrrD9NBYFGE3PzGvSFGGklVF"></script>
   <script>
+      /* global TahoeBI */
       domready(function () {
           const deviceDetailView = new TahoeBI.DeviceDetailView(
               document.querySelector('.app')
+          );
+          deviceDetailView.updateMap(121.35887, 31.24198);
+          deviceDetailView.datatable.setMessage('等待载入数据...');
+          deviceDetailView.updateActivationTable(
+              new Array(3).fill([
+                  'AC-102873435',
+                  '2017-10-18 12:38:24',
+                  '30天流量卡',
+              ])
           );
       });
   </script>
