@@ -50,22 +50,109 @@
       </div>
     </div>
     <div class="block status-view">
-      <h4 class="block-header">设备状态</h4>
-      <div class="info">
-        <div class="info-field">
-          <div class="info-field-name">设备状态</div>
-          <div class="info-field-value">正常</div>
+      <section class="device-overview">
+        <h4 class="section-header">设备状态</h4>
+        <div class="info">
+          <div class="info-field">
+            <div class="info-field-name">设备状态</div>
+            <div class="info-field-value">正常</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">工作状态</div>
+            <div class="info-field-value">暂停</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">故障码</div>
+            <div class="info-field-value">0x33</div>
+          </div>
         </div>
-        <div class="info-field">
-          <div class="info-field-name">工作状态</div>
-          <div class="info-field-value">暂停</div>
+      </section>
+      <section class="device-data">
+        <h4 class="section-header">设备数据</h4>
+        <div class="info">
+          <div class="info-field">
+            <div class="info-field-name">进水口TDS</div>
+            <div class="info-field-value">520</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">出水口TDS</div>
+            <div class="info-field-value">4</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">制水量</div>
+            <div class="info-field-value">201</div>
+          </div>
         </div>
-        <div class="info-field">
-          <div class="info-field-name">故障码</div>
-          <div class="info-field-value">0x33</div>
+        <div class="chart-container"></div>
+      </section>
+      <section class="filter-info">
+        <div class="section-header">
+          滤芯状态
+          <a class="button">重置</a>
         </div>
-      </div>
-      <h4 class="block-header">设备数据</h4>
+        <div class="filter-bars">
+          <div class="filter-bar">
+            <span class="filter-name">滤芯1：</span>
+            <div class="meter"><span style="width: 30%"></span></div>
+            <span class="filter-value">30%</span>
+            <label class="filter-check">
+              <input type="checkbox" value="1">
+            </label>
+          </div>
+          <div class="filter-bar">
+            <span class="filter-name">滤芯2：</span>
+            <div class="meter"><span style="width: 50%"></span></div>
+            <span class="filter-value">50%</span>
+            <label class="filter-check">
+              <input type="checkbox" value="2">
+            </label>
+          </div>
+          <div class="filter-bar">
+            <span class="filter-name">滤芯3：</span>
+            <div class="meter"><span style="width: 30%"></span></div>
+            <span class="filter-value">30%</span>
+            <label class="filter-check">
+              <input type="checkbox" value="3">
+            </label>
+          </div>
+          <div class="filter-bar">
+            <span class="filter-name">滤芯4：</span>
+            <div class="meter"><span style="width: 40%"></span></div>
+            <span class="filter-value">40%</span>
+            <label class="filter-check">
+              <input type="checkbox" value="4">
+            </label>
+          </div>
+          <div class="filter-bar">
+            <span class="filter-name">滤芯5：</span>
+            <div class="meter"><span style="width: 70%"></span></div>
+            <span class="filter-value">70%</span>
+            <label class="filter-check">
+              <input type="checkbox" value="5">
+            </label>
+          </div>
+        </div>
+      </section>
+      <section class="payment-info">
+        <div class="section-header">
+          计费信息
+          <a class="button">充值</a>
+        </div>
+        <div class="info">
+          <div class="info-field">
+            <div class="info-field-name">使用方式</div>
+            <div class="info-field-value">按时租赁</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">开始时间</div>
+            <div class="info-field-value">2017-03-19</div>
+          </div>
+          <div class="info-field">
+            <div class="info-field-name">到期时间</div>
+            <div class="info-field-value">2018-05-24</div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
   <div class="column">
@@ -123,6 +210,7 @@
                   '30天流量卡',
               ])
           );
+          deviceDetailView.updateTempChart(84, 22);
       });
   </script>
 {% endblock %}
