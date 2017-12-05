@@ -2,7 +2,7 @@ import Datatable from 'vanilla-datatables';
 import {defaultConfig} from './dt-utils';
 
 export default class DeviceDetailView {
-    constructor(root) {
+    constructor(root, options = {}) {
         this.datatable = this.initActivationTable(
             root.querySelector('.activation-table')
         );
@@ -12,6 +12,10 @@ export default class DeviceDetailView {
         this.tempChart = this.initTempChart(
             root.querySelector('.chart-container')
         );
+        this.initOperationView(
+            root.querySelector('.operation-view')
+        );
+        this.operationCallback = options['operationCallback'];
     }
 
     initMap(el) {
@@ -211,6 +215,21 @@ export default class DeviceDetailView {
                     ],
                 },
             ],
+        });
+    }
+
+    initOperationView(el) {
+        const panel = el.querySelector('.operation-panel');
+        panel.addEventListener('click', (ev) => {
+            const button = ev.target.closest('.operation-button');
+            if (!button) return;
+            if (!this.operationCallback) {
+                alert('Error: no operation callback provided');
+                return;
+            }
+            const operation = button.dataset['operation'];
+            const text = button.text.trim();
+            this.operationCallback(operation, text);
         });
     }
 }

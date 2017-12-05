@@ -35,15 +35,15 @@
     <div class="block operation-view">
       <h4 class="block-header">基本操作</h4>
       <div class="operation-panel">
-        <a class="operation-button">
+        <a class="operation-button" data-operation="1">
           <i class="operation-icon icon-op-power"></i>
           关机
         </a>
-        <a class="operation-button">
+        <a class="operation-button" data-operation="2">
           <i class="operation-icon icon-op-screen"></i>
           开机
         </a>
-        <a class="operation-button">
+        <a class="operation-button" data-operation="3">
           <i class="operation-icon icon-op-wash"></i>
           冲洗
         </a>
@@ -199,7 +199,13 @@
       /* global TahoeBI */
       domready(function () {
           const deviceDetailView = new TahoeBI.DeviceDetailView(
-              document.querySelector('.app')
+              document.querySelector('.app'),
+              {
+                  'operationCallback': (operation) => {
+                      if (parseInt(operation) === 1) return Promise.reject('权限');
+                      return Promise.resolve('成功');
+                  }
+              }
           );
           deviceDetailView.updateMap(121.35887, 31.24198);
           deviceDetailView.datatable.setMessage('等待载入数据...');
