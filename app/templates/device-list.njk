@@ -39,16 +39,24 @@
           const deviceListView = new TahoeBI.DeviceListView(
               document.querySelector('.app')
           );
-          deviceListView.updateDeviceListTable(
-              new Array(20).fill([
+          deviceListView.updateDeviceListTable({
+              headings: [
+                  '设备编号',
+                  '设备型号',
+                  '使用方式',
+                  '使用停止限制信息',
+                  '设备状态',
+                  '使用状态',
+              ],
+              data: new Array(20).fill([
                   '<a href="#">DID-201712103323328342</a>',
                   'ZS-J05W',
                   '按时租赁',
                   '开始时间：2017-10-18<br>结束时间：2018-12-10',
                   '正常',
                   '正常',
-              ])
-          );
+              ]),
+          });
       })
   </script>
 {% endblock %}
