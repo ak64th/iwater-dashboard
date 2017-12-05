@@ -8,6 +8,7 @@ const titleOptions = {
 const pieSeriesOptions = {
     type: 'pie',
     radius: [30, 40],
+    animation: false,
     hoverAnimation: false,
     avoidLabelOverlap: false,
     label: {normal: {show: false}},
@@ -73,6 +74,9 @@ export function initDeviceSummaryView(root) {
                             normal: {
                                 color: '#dcdcdc',
                             },
+                            emphasis: {
+                                color: '#dcdcdc',
+                            },
                         },
                     },
                 ],
@@ -103,6 +107,9 @@ export function initDeviceSummaryView(root) {
                         value: 425,
                         itemStyle: {
                             normal: {
+                                color: '#dcdcdc',
+                            },
+                            emphasis: {
                                 color: '#dcdcdc',
                             },
                         },
@@ -137,6 +144,9 @@ export function initDeviceSummaryView(root) {
                             normal: {
                                 color: '#dcdcdc',
                             },
+                            emphasis: {
+                                color: '#dcdcdc',
+                            },
                         },
                     },
                 ],
@@ -167,6 +177,9 @@ export function initDeviceSummaryView(root) {
                         value: 425,
                         itemStyle: {
                             normal: {
+                                color: '#dcdcdc',
+                            },
+                            emphasis: {
                                 color: '#dcdcdc',
                             },
                         },
