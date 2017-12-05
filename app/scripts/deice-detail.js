@@ -1,5 +1,5 @@
 import Datatable from 'vanilla-datatables';
-import {defaultConfig} from './dt-utils';
+import {defaultConfig, setLoadingMessage, refreshData} from './dt-utils';
 
 export default class DeviceDetailView {
     constructor(root, options = {}) {
@@ -31,28 +31,18 @@ export default class DeviceDetailView {
     }
 
     initActivationTable(el) {
-        const headings = [
-            '激活码',
-            '激活时间',
-            '激活码类型',
-        ];
-        this.datatable = new Datatable(el, Object.assign({}, defaultConfig, {
+        this.datatable = new Datatable(el, {
+            ...defaultConfig,
             layout: {
                 top: '<div class="section-header">激活记录</div>{search}',
             },
-            data: {
-                headings: headings,
-                // add an empty line to make setMessage work correctly
-                data: [new Array(headings.length).fill('')],
-            },
-        }));
+        });
+        setLoadingMessage(this.datatable, '等待载入数据...');
         return this.datatable;
     }
 
     updateActivationTable(data) {
-        // remove all data rows
-        this.datatable.data.splice(0, this.datatable.data.length);
-        this.datatable.insert({data: data});
+        refreshData(this.datatable, data);
     }
 
     initTempChart(el) {

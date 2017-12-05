@@ -208,14 +208,18 @@
               }
           );
           deviceDetailView.updateMap(121.35887, 31.24198);
-          deviceDetailView.datatable.setMessage('等待载入数据...');
-          deviceDetailView.updateActivationTable(
-              new Array(3).fill([
+          deviceDetailView.updateActivationTable({
+              headings: [
+                  '激活码',
+                  '激活时间',
+                  '激活码类型',
+              ],
+              data: new Array(3).fill([
                   'AC-102873435',
                   '2017-10-18 12:38:24',
                   '30天流量卡',
               ])
-          );
+          });
           deviceDetailView.updateTempChart(84, 22);
       });
   </script>
