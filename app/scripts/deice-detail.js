@@ -1,8 +1,5 @@
-/* global BMap  */
 import Datatable from 'vanilla-datatables';
 import {defaultConfig} from './dt-utils';
-
-const echarts = global.echarts;
 
 export default class DeviceDetailView {
     constructor(root) {

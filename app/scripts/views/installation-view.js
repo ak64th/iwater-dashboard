@@ -68,7 +68,6 @@ const tabData = {
 };
 
 export function initInstallationView(root) {
-    let echarts = global.echarts;
     const container = root.querySelector('.installation-chart-container');
     const chart = echarts.init(container);
     chart.setOption({
@@ -121,7 +120,7 @@ export function initInstallationView(root) {
             textStyle: {
                 color: '#47d3e2',
                 fontSize: 10,
-            }
+            },
         },
         series: {
             type: 'line',
@@ -134,7 +133,7 @@ export function initInstallationView(root) {
     const tabs = Array.from(tabControl.querySelectorAll('.tab-control-item'));
     tabs.forEach((el) => {
         const siblings = tabs.filter((s) => s !== el);
-        el.addEventListener('click', (e) => {
+        el.addEventListener('click', () => {
             siblings.forEach((s) => {
                 s.classList.remove('tab-control-item-active');
             });

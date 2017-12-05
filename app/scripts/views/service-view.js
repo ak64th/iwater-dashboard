@@ -2,7 +2,6 @@ import range from '../range';
 import dropImage from '../../images/drop.png';
 
 export function initServiceChart(root) {
-    let echarts = global.echarts;
     const container = root.querySelector('.service-chart-container');
     const chart = echarts.init(container);
     chart.setOption({
@@ -135,8 +134,8 @@ export function initServiceChart(root) {
                 textStyle: {
                     color: '#47d3e2',
                     fontSize: 10,
-                }
-            }
+                },
+            },
         ],
         xAxis: {
             splitLine: {show: false},

@@ -1,5 +1,4 @@
 export function initMapView(root) {
-    const echarts = global.echarts;
     const container = root.getElementsByClassName('map-container')[0];
     const chart = echarts.init(container);
     chart.setOption({

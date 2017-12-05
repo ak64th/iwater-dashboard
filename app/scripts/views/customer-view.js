@@ -1,5 +1,4 @@
 export function initCustomerView(root) {
-    let echarts = global.echarts;
     const container = root.querySelector('.customer-chart-container');
     const chart = echarts.init(container);
     chart.setOption({
@@ -278,5 +277,5 @@ export function initCustomerView(root) {
             },
         ],
     });
-    return chart
+    return chart;
 }

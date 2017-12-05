@@ -15,7 +15,6 @@ const pieSeriesOptions = {
 };
 
 export function initDeviceSummaryView(root) {
-    const echarts = global.echarts;
     const container = root.querySelector('.chart-container');
     const chart = echarts.init(container);
     chart.setOption({
