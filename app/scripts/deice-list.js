@@ -19,9 +19,6 @@ export default class DeviceListView {
     initDeviceListTable(el) {
         this.datatable = new Datatable(el, {
             ...defaultConfig,
-            layout: {
-                top: '',
-            },
             perPage: 5,
             perPageSelect: [5, 10, 50],
         });
