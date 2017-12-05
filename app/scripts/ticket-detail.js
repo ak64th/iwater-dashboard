@@ -1,4 +1,5 @@
-import {Datatable, defaultConfig} from './datatable';
+import Datatable from 'vanilla-datatables';
+import {defaultConfig} from './dt-utils';
 
 export default class TicketDetailView {
     constructor(root) {

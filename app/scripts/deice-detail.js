@@ -1,5 +1,6 @@
 /* global BMap  */
-import {Datatable, defaultConfig} from './datatable';
+import Datatable from 'vanilla-datatables';
+import {defaultConfig} from './dt-utils';
 
 const echarts = global.echarts;
 

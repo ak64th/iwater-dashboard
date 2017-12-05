@@ -1,4 +1,5 @@
-import {createHeadOnlyDatatable} from './datatable';
+import Datatable from 'vanilla-datatables';
+import {defaultConfig, setLoadingMessage, refreshData} from './dt-utils';
 import {initDeviceSummaryView} from './views/device-summary-chart-view';
 import {initPurifiedView} from './views/purified-view';
 
@@ -16,25 +17,19 @@ export default class DeviceListView {
     }
 
     initDeviceListTable(el) {
-        const headings = [
-            '设备编号',
-            '设备型号',
-            '使用方式',
-            '使用停止限制信息',
-            '设备状态',
-            '使用状态',
-        ];
-        this.datatable = createHeadOnlyDatatable(el, headings, {
+        this.datatable = new Datatable(el, {
+            ...defaultConfig,
+            layout: {
+                top: '',
+            },
             perPage: 5,
             perPageSelect: [5, 10, 50],
         });
-        this.datatable.setMessage('等待载入数据...');
+        setLoadingMessage(this.datatable, '等待载入数据...');
         return this.datatable;
     }
 
     updateDeviceListTable(data) {
-        // remove all data rows
-        this.datatable.data.splice(0, this.datatable.data.length);
-        this.datatable.insert({data: data});
+        refreshData(this.datatable, data);
     }
 }
