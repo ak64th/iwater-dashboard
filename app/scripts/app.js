@@ -9,3 +9,5 @@ export {
     DeviceDetailView,
     TicketDetailView,
 };
+
+export {fetchJson} from './fetch-json';
