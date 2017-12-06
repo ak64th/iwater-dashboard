@@ -15,7 +15,11 @@ export default class DeviceDetailView {
         this.initOperationView(
             root.querySelector('.operation-view')
         );
+        this.initFilterView(
+            root.querySelector('.filter-info')
+        );
         this.operationCallback = options['operationCallback'];
+        this.resetFilterCallback = options['resetFilterCallback'];
     }
 
     initMap(el) {
@@ -214,12 +218,44 @@ export default class DeviceDetailView {
             const button = ev.target.closest('.operation-button');
             if (!button) return;
             if (!this.operationCallback) {
-                alert('Error: no operation callback provided');
-                return;
+                throw new Error('no operation callback provided');
             }
             const operation = button.dataset['operation'];
             const text = button.text.trim();
             this.operationCallback(operation, text);
+        });
+    }
+
+    initFilterView(el) {
+        const button = el.querySelector('.button');
+        const bars = el.querySelector('.filter-bars');
+        let editing = bars.classList.contains('filter-bars-editing');
+        button.addEventListener('click', () => {
+            if (!this.resetFilterCallback) {
+                throw new Error('no reset filter callback provided');
+            }
+            if (!editing) {
+                editing = true;
+                bars.classList.add('filter-bars-editing');
+                button.textContent = '确定';
+            } else {
+                const checked = Array.from(
+                    el.querySelectorAll('input[name=filter]:checked')
+                );
+                const values = checked.map((checkbox) => checkbox.value);
+                this.resetFilterCallback(values).then(() => {
+                    checked.forEach((input) => {
+                        const bar = input.closest('.filter-bar');
+                        bar.querySelector('.meter span').style.width = '100%';
+                        bar.querySelector('.filter-value').textContent = '100%';
+                        input.checked = false;
+                    });
+                }).finally(() => {
+                    editing = false;
+                    bars.classList.remove('filter-bars-editing');
+                    button.textContent = '重置';
+                });
+            }
         });
     }
 }
