@@ -86,6 +86,14 @@
   </div>
   <div class="operation-view block">
     <table class="operation-table datatable">
+      <thead>
+      <tr>
+        <th>操作时间</th>
+        <th>操作</th>
+        <th>状态</th>
+        <th>备注</th>
+      </tr>
+      </thead>
     </table>
   </div>
 {% endblock %}
@@ -96,7 +104,6 @@
       /* global TahoeBI */
       domready(function () {
           const ticketDetailView = new TahoeBI.TicketDetailView(appContainer);
-          ticketDetailView.datatable.setMessage('等待载入数据...');
       })
   </script>
 {% endblock %}
