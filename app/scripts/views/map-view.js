@@ -56,16 +56,6 @@ export function initMapView(root) {
                 coordinateSystem: 'geo',
                 data: [],
                 symbolSize: (val) => 2 + Math.max(Math.min(val[2] / 10, 15), 3),
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: false,
-                    },
-                    emphasis: {
-                        show: true,
-                    },
-                },
             },
         ],
     });
