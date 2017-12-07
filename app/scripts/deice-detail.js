@@ -1,5 +1,6 @@
 import Datatable from 'vanilla-datatables';
 import {defaultConfig, setLoadingMessage, refreshData} from './dt-utils';
+import {Modal} from './modal';
 
 export default class DeviceDetailView {
     constructor(root, options = {}) {
@@ -20,6 +21,7 @@ export default class DeviceDetailView {
         );
         this.operationCallback = options['operationCallback'];
         this.resetFilterCallback = options['resetFilterCallback'];
+        this.modal = new Modal();
     }
 
     initMap(el) {
@@ -222,7 +224,14 @@ export default class DeviceDetailView {
             }
             const operation = button.dataset['operation'];
             const text = button.text.trim();
-            this.operationCallback(operation, text);
+            this.modal.show('正在发送命令...');
+            this.operationCallback(operation, text).then(() => {
+                this.modal.update('操作成功');
+            }).catch((reason) => {
+                this.modal.update(`操作失败，错误原因：${reason}`);
+            }).finally(() => {
+                this.modal.closable = true;
+            });
         });
     }
 
@@ -243,17 +252,20 @@ export default class DeviceDetailView {
                     el.querySelectorAll('input[name=filter]:checked')
                 );
                 const values = checked.map((checkbox) => checkbox.value);
+                this.modal.show('正在发送命令...');
                 this.resetFilterCallback(values).then(() => {
                     checked.forEach((input) => {
                         const bar = input.closest('.filter-bar');
                         bar.querySelector('.meter span').style.width = '100%';
                         bar.querySelector('.filter-value').textContent = '100%';
                         input.checked = false;
+                        this.modal.update('操作成功');
                     });
                 }).finally(() => {
                     editing = false;
                     bars.classList.remove('filter-bars-editing');
                     button.textContent = '重置';
+                    this.modal.closable = true;
                 });
             }
         });
