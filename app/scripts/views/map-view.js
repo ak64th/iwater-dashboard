@@ -41,6 +41,13 @@ export function initMapView(root) {
                     borderColor: '#368cb1',
                 },
             },
+            regions: [
+                {
+                    name: '南海诸岛',
+                    itemStyle: {normal: {opacity: 0}},
+                    label: {emphasis: {show: false}},
+                },
+            ],
         },
         series: [
             {
