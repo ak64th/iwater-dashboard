@@ -1,0 +1,22 @@
+@import 'scut';
+@import 'variables';
+
+.modal-overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($dark, 0.8);
+  opacity: 1;
+}
+
+.modal-box {
+  @include scut-center-transform;
+
+  z-index: 2;
+  padding: 20px 32px;
+  background-color: $light;
+  box-shadow: 1px 1px 1px;
+}
