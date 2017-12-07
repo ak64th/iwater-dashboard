@@ -1,13 +1,17 @@
 // Vendor
 @import 'normalize';
 @import 'scut';
-@import 'datatables';
 
 // Setup
 @import 'mixins';
 @import 'variables';
 @import 'fonts';
 @import 'globals';
+// Components
+@import 'stepwizard';
+@import 'datatables';
+@import 'info';
+@import 'modal';
 
 body {
   background: $body-background;
@@ -104,14 +108,13 @@ body {
   padding: 10px 20px;
   margin-bottom: 10px;
   background-color: $light;
-  //box-shadow: inset 1px 1px $dark, inset -1px -1px $dark;
 }
 
 .block-header {
   color: $dark;
   cursor: default;
-  user-select: none;
   font-weight: 500;
+  user-select: none;
 }
 
 .dashboard {
@@ -136,4 +139,16 @@ body {
 
 .device-detail {
   @import 'device-detail';
+}
+
+.ticket-detail {
+  @import 'ticket-detail';
+}
+
+.ticket-list {
+  @import 'ticket-list';
+}
+
+.customer-detail {
+  @import 'customer-detail';
 }
