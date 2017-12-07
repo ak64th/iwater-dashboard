@@ -1,13 +1,5 @@
-import DashboardView from './dashboard';
-import DeviceListView from './deice-list';
-import DeviceDetailView from './deice-detail';
-import TicketDetailView from './ticket-detail';
-
-export {
-    DashboardView,
-    DeviceListView,
-    DeviceDetailView,
-    TicketDetailView,
-};
-
+export {default as DashboardView} from './dashboard';
+export {default as DeviceListView} from './deice-list';
+export {default as DeviceDetailView} from './deice-detail';
+export {default as TicketDetailView} from './ticket-detail';
 export {fetchJson} from './fetch-json';
