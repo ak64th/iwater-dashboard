@@ -1,0 +1,91 @@
+@import 'variables';
+
+.top {
+  display: block;
+  width: 100%;
+  min-height: 410px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.column {
+  width: 50%;
+  float: left;
+
+  &:first-child {
+    max-width: 560px;
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    max-width: 686px;
+  }
+}
+
+.purchase-frequency-view {
+  height: 200px;
+}
+
+.purchase-type-view {
+  height: 200px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 175px;
+}
+
+.customer-loyalty-view {
+  height: 410px;
+  padding: 10px 0 0;
+
+  .block-header {
+    margin-left: 20px;
+  }
+}
+
+.customer-loyalty-table {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 20px;
+  border-spacing: 0;
+
+  tr {
+    height: 40px;
+  }
+
+  thead tr {
+    background-color: #49b5c9;
+    color: $light;
+
+    &:first-child {
+      background-color: #009ac1;
+    }
+
+    // stylelint-disable-next-line selector-max-compound-selectors
+    &:first-child th {
+      border-bottom: 1px solid $light;
+    }
+  }
+
+  td,
+  th {
+    text-align: left;
+    vertical-align: center;
+
+    &:first-child {
+      text-align: center;
+    }
+  }
+
+  th {
+    font-size: 1em;
+    font-weight: normal;
+    text-align: left;
+  }
+}
+
+.customer-list-view {
+  min-height: 510px;
+  padding: 20px 0 10px;
+}
