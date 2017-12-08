@@ -149,6 +149,10 @@ body {
   @import 'ticket-list';
 }
 
+.customer-list {
+  @import 'customer-list';
+}
+
 .customer-detail {
   @import 'customer-detail';
 }
