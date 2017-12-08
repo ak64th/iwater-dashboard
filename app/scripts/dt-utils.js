@@ -19,11 +19,11 @@ export const defaultConfig = {
 
 export function setLoadingMessage(datatable, message = 'loading...') {
     if (datatable.headings.length && !datatable.data.length) {
-        // add an empty line to make setMessage work correctly
-        datatable.insert({
-            data: [new Array(datatable.headings.length).fill('')],
-        });
-        datatable.setMessage(message);
+        const colspan = datatable.headings.length;
+        const tr = document.createElement('tr');
+        tr.innerHTML = '<td class="dataTables-empty"' +
+            ` colspan="${colspan}">${message}</td>`;
+        datatable.clear(tr);
     }
 }
 
