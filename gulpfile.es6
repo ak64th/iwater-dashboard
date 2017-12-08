@@ -185,6 +185,7 @@ gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
 
 gulp.task('server', ['watch'], () => {
     browserSync.init({
+        open: false,
         server: {baseDir: PATH.DIST},
     });
 });
