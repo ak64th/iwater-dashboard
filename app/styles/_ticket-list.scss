@@ -1,0 +1,34 @@
+@import 'variables';
+
+.chart-container {
+  display: block;
+  width: 100%;
+  height: 480px;
+
+  .chart-container {
+    display: block;
+    width: 100%;
+    height: 480px;
+    //box-shadow: inset 1px 1px $dark, inset -1px -1px $dark;
+  }
+}
+
+.service-coverage-view {
+  width: 696px;
+  height: 530px;
+  float: left;
+}
+
+.service-stat-view {
+  width: 550px;
+  height: 530px;
+  margin-left: 10px;
+  float: left;
+}
+
+.service-list-view {
+  width: 100%;
+  min-height: 500px;
+  padding: 20px 0;
+  float: left;
+}

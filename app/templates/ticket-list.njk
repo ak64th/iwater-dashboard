@@ -1,0 +1,78 @@
+{% extends "_layout.njk" %}
+
+{% set bodyClass = "ticket-list" %}
+
+{% block title %}
+  <title>服务单</title>
+{% endblock %}
+
+{% block breadcumb %}
+  <div>业务概况/服务单</div>
+{% endblock %}
+
+{% block content %}
+  <div class="panel-control-bar">
+    <form class="panel-control">
+      <select name="year" class="panel-control-item year-select" title="year">
+        <option value="2017">2017</option>
+      </select>
+      <select class='panel-control-item region-select' name="region" title="region">
+        <option value="">全国</option>
+      </select>
+    </form>
+  </div>
+  <div class="service-coverage-view block">
+    <h4 class="block-header">服务人员空间覆盖</h4>
+    <div class="chart-container"></div>
+  </div>
+  <div class="service-stat-view block">
+    <h4 class="block-header">服务单数量统计</h4>
+    <div class="chart-container"></div>
+  </div>
+  <div class="service-list-view block">
+    <table class="service-list-table datatable">
+      <thead>
+      <tr>
+        <th>服务单</th>
+        <th>类别</th>
+        <th>内容</th>
+        <th>当前处理人</th>
+        <th>创建时间</th>
+        <th>最近处理时间</th>
+        <th>状态</th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+      /* global TahoeBI */
+      const appContainer = document.querySelector('.app');
+      domready(function () {
+          const ticketListView = new TahoeBI.TicketListView(appContainer);
+          ticketListView.updateServiceCoverageView({
+              coveredProvinces: [
+                  '上海',
+                  '江西',
+                  '山东',
+                  '浙江',
+                  '安徽',
+                  '云南',
+                  '辽宁',
+                  '内蒙古',
+              ],
+              coveredCities: [
+                  {
+                      name: '大连',
+                      value: [121.62, 38.92, 14],
+                  },
+              ]
+          });
+          ticketListView.updateServiceStatView(
+              [27, 32, 44, 37, 49, 45, 55, 65, 74, 65, 55, 52]
+          );
+      });
+  </script>
+{% endblock %}
