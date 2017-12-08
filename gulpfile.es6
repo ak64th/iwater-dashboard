@@ -185,8 +185,6 @@ gulp.task('watch', ['html', 'style', 'watch-scripts'], () => {
 
 gulp.task('server', ['watch'], () => {
     browserSync.init({
-        open: true,
-        browser: 'chromium-browser',
         server: {baseDir: PATH.DIST},
     });
 });
