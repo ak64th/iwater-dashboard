@@ -1,0 +1,47 @@
+.column {
+  width: 50%;
+  padding-top: 20px;
+  float: left;
+
+  &:first-child {
+    max-width: 560px;
+    margin-right: 10px;
+  }
+
+  &:last-child {
+    max-width: 686px;
+  }
+}
+
+.info-view {
+  height: 160px;
+
+  .info {
+    margin-top: 10px;
+  }
+
+  .info-field {
+    min-width: 40%;
+    line-height: 32px;
+  }
+}
+
+.device-list-view {
+  height: 600px;
+  padding: 10px 0;
+
+  .block-header {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}
+
+.ticket-view {
+  height: 770px;
+  padding: 10px 0;
+
+  .block-header {
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+}
