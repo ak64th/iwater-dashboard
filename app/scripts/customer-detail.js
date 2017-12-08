@@ -22,7 +22,7 @@ export default class CustomerDetailView {
         return this.deviceListTable;
     }
 
-    updateActivationTable(data) {
+    updateDeviceListTable(data) {
         refreshData(this.deviceListTable, data);
     }
 
