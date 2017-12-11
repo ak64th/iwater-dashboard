@@ -261,6 +261,8 @@ export default class DeviceDetailView {
                         input.checked = false;
                         this.modal.update('操作成功');
                     });
+                }).catch((reason) => {
+                    this.modal.update(`操作失败，错误原因：${reason}`);
                 }).finally(() => {
                     editing = false;
                     bars.classList.remove('filter-bars-editing');
