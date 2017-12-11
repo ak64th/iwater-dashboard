@@ -206,11 +206,20 @@
                       return Promise.resolve('成功');
                   },
                   'resetFilterCallback': (values) => {
-                      return new Promise((resolve, reject) => {
-                          setTimeout(() => {
-                              if (values.indexOf('2') >= 0) return reject('失败');
-                              return resolve('成功');
+                      // return error message when resetting filter 2
+                      return new Promise(function (resolve) {
+                          setTimeout(function () {
+                              if (values.indexOf('2') >= 0)
+                                  resolve({
+                                      status: '500',
+                                      message: '失败'
+                                  });
+                              return resolve({status: '0', message: '成功'});
                           }, 1000);
+                      }).then(function (data) {
+                          if (parseInt(data.status) === 0)
+                              return Promise.resolve(data.message);
+                          return Promise.reject(data.message);
                       });
                   }
               }

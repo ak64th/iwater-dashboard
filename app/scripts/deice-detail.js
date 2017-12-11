@@ -227,9 +227,9 @@ export default class DeviceDetailView {
             this.modal.show('正在发送命令...');
             this.operationCallback(operation, text).then(() => {
                 this.modal.update('操作成功');
+                this.modal.closable = true;
             }).catch((reason) => {
                 this.modal.update(`操作失败，错误原因：${reason}`);
-            }).finally(() => {
                 this.modal.closable = true;
             });
         });
@@ -252,6 +252,12 @@ export default class DeviceDetailView {
                     el.querySelectorAll('input[name=filter]:checked')
                 );
                 const values = checked.map((checkbox) => checkbox.value);
+                if (!values.length) {
+                    editing = false;
+                    bars.classList.remove('filter-bars-editing');
+                    button.textContent = '重置';
+                    return false;
+                }
                 this.modal.show('正在发送命令...');
                 this.resetFilterCallback(values).then(() => {
                     checked.forEach((input) => {
@@ -260,10 +266,13 @@ export default class DeviceDetailView {
                         bar.querySelector('.filter-value').textContent = '100%';
                         input.checked = false;
                         this.modal.update('操作成功');
+                        editing = false;
+                        bars.classList.remove('filter-bars-editing');
+                        button.textContent = '重置';
+                        this.modal.closable = true;
                     });
                 }).catch((reason) => {
                     this.modal.update(`操作失败，错误原因：${reason}`);
-                }).finally(() => {
                     editing = false;
                     bars.classList.remove('filter-bars-editing');
                     button.textContent = '重置';
