@@ -197,30 +197,34 @@
           src="http://api.map.baidu.com/api?v=2.0&ak=oqxSiKOPPrrD9NBYFGE3PzGvSFGGklVF"></script>
   <script>
       /* global TahoeBI */
+      function callAPI(url) {
+          return fetch(url)
+              .then((resp) => {
+                  if (resp.status >= 200 && resp.status < 300) {
+                      return Promise.resolve(resp);
+                  }
+                  return Promise.reject(new Error(resp.statusText));
+              })
+              .then((resp) => resp.json())
+              .then((data) => {
+                  if (parseInt(data.status) === 0) {
+                      return Promise.resolve(data.message);
+                  }
+                  return Promise.reject(data.message);
+              });
+      }
+
       domready(function () {
           const deviceDetailView = new TahoeBI.DeviceDetailView(
               document.querySelector('.app'),
               {
                   'operationCallback': (operation) => {
-                      if (parseInt(operation) === 1) return Promise.reject('权限');
-                      return Promise.resolve('成功');
+                      return callAPI(`/mock/commands/${operation}`);
                   },
                   'resetFilterCallback': (values) => {
-                      // return error message when resetting filter 2
-                      return new Promise(function (resolve) {
-                          setTimeout(function () {
-                              if (values.indexOf('2') >= 0)
-                                  resolve({
-                                      status: '500',
-                                      message: '失败'
-                                  });
-                              return resolve({status: '0', message: '成功'});
-                          }, 1000);
-                      }).then(function (data) {
-                          if (parseInt(data.status) === 0)
-                              return Promise.resolve(data.message);
-                          return Promise.reject(data.message);
-                      });
+                      return Promise.all(
+                          values.map((n) => callAPI(`/mock/reset/${n}`))
+                      );
                   }
               }
           );
