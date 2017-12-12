@@ -227,7 +227,6 @@ export default class DeviceDetailView {
             this.modal.show('正在发送命令...');
             this.operationCallback(operation, text).then(() => {
                 this.modal.update('操作成功');
-                this.modal.closable = true;
             }).catch((reason) => {
                 this.modal.update(`操作失败，错误原因：${reason}`);
                 this.modal.closable = true;
@@ -238,13 +237,12 @@ export default class DeviceDetailView {
     initFilterView(el) {
         const button = el.querySelector('.button');
         const bars = el.querySelector('.filter-bars');
-        let editing = bars.classList.contains('filter-bars-editing');
         button.addEventListener('click', () => {
             if (!this.resetFilterCallback) {
                 throw new Error('no reset filter callback provided');
             }
+            const editing = bars.classList.contains('filter-bars-editing');
             if (!editing) {
-                editing = true;
                 bars.classList.add('filter-bars-editing');
                 button.textContent = '确定';
             } else {
@@ -253,7 +251,6 @@ export default class DeviceDetailView {
                 );
                 const values = checked.map((checkbox) => checkbox.value);
                 if (!values.length) {
-                    editing = false;
                     bars.classList.remove('filter-bars-editing');
                     button.textContent = '重置';
                     return false;
@@ -266,14 +263,9 @@ export default class DeviceDetailView {
                         bar.querySelector('.filter-value').textContent = '100%';
                         input.checked = false;
                         this.modal.update('操作成功');
-                        editing = false;
-                        bars.classList.remove('filter-bars-editing');
-                        button.textContent = '重置';
-                        this.modal.closable = true;
                     });
                 }).catch((reason) => {
                     this.modal.update(`操作失败，错误原因：${reason}`);
-                    editing = false;
                     bars.classList.remove('filter-bars-editing');
                     button.textContent = '重置';
                     this.modal.closable = true;
