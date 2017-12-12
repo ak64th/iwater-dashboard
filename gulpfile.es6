@@ -11,6 +11,7 @@ import gulp from 'gulp';
 import gulpSequence from 'gulp-sequence';
 import gutil from 'gulp-util';
 import image from 'gulp-image';
+import MockAPI from 'mock-api-middleware';
 import nunjucksRender from 'gulp-nunjucks-render';
 import path from 'path';
 import prettify from 'gulp-jsbeautifier';
@@ -187,6 +188,9 @@ gulp.task('server', ['watch'], () => {
     browserSync.init({
         open: false,
         server: {baseDir: PATH.DIST},
+        middleware: [
+            new MockAPI('/mock', {mockPath: './mocks/'}),
+        ],
     });
 });
 

@@ -37,6 +37,7 @@
     "gulp-util": "^3.0.8",
     "gulp.spritesmith": "^6.5.1",
     "imgurify": "^2.0.0",
+    "mock-api-middleware": "^0.1.4",
     "normalize-scss": "^7.0.0",
     "scut": "^1.4.0",
     "stylelint": "^8.2.0",
