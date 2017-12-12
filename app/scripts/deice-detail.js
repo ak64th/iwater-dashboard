@@ -256,6 +256,8 @@ export default class DeviceDetailView {
                     return false;
                 }
                 this.modal.show('正在发送命令...');
+                // Don't use `Promise.finally` here since the Promise instance
+                // returned from native `fetch` function may not support it
                 this.resetFilterCallback(values).then(() => {
                     checked.forEach((input) => {
                         const bar = input.closest('.filter-bar');
