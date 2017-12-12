@@ -227,6 +227,7 @@ export default class DeviceDetailView {
             this.modal.show('正在发送命令...');
             this.operationCallback(operation, text).then(() => {
                 this.modal.update('操作成功');
+                this.modal.closable = true;
             }).catch((reason) => {
                 this.modal.update(`操作失败，错误原因：${reason}`);
                 this.modal.closable = true;
@@ -241,6 +242,11 @@ export default class DeviceDetailView {
             if (!this.resetFilterCallback) {
                 throw new Error('no reset filter callback provided');
             }
+
+            function reset() {
+                bars.classList.remove('filter-bars-editing');
+                button.textContent = '重置';
+            }
             const editing = bars.classList.contains('filter-bars-editing');
             if (!editing) {
                 bars.classList.add('filter-bars-editing');
@@ -250,11 +256,7 @@ export default class DeviceDetailView {
                     el.querySelectorAll('input[name=filter]:checked')
                 );
                 const values = checked.map((checkbox) => checkbox.value);
-                if (!values.length) {
-                    bars.classList.remove('filter-bars-editing');
-                    button.textContent = '重置';
-                    return false;
-                }
+                if (!values.length) return reset();
                 this.modal.show('正在发送命令...');
                 // Don't use `Promise.finally` here since the Promise instance
                 // returned from native `fetch` function may not support it
@@ -264,12 +266,13 @@ export default class DeviceDetailView {
                         bar.querySelector('.meter span').style.width = '100%';
                         bar.querySelector('.filter-value').textContent = '100%';
                         input.checked = false;
-                        this.modal.update('操作成功');
                     });
+                    reset();
+                    this.modal.update('操作成功');
+                    this.modal.closable = true;
                 }).catch((reason) => {
+                    reset();
                     this.modal.update(`操作失败，错误原因：${reason}`);
-                    bars.classList.remove('filter-bars-editing');
-                    button.textContent = '重置';
                     this.modal.closable = true;
                 });
             }
