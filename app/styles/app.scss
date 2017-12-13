@@ -8,6 +8,7 @@
 @import 'fonts';
 @import 'globals';
 // Components
+@import 'breadcrumb';
 @import 'stepwizard';
 @import 'datatables';
 @import 'info';
@@ -37,7 +38,7 @@ body {
 .site-header {
   @include scut-vcenter-ib(
     '*',
-    '.menu-toggle > *',
+      '.menu-toggle *',
     '.header-title > *',
     '.header-panel > *'
   );
@@ -70,7 +71,8 @@ body {
 
 .content {
   position: relative;
-  padding: $site-header-height 40px 32px 40px;
+  padding: 0 40px 32px;
+  margin-top: $site-header-height;
 }
 
 .panel-control-bar {

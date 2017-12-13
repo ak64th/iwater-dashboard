@@ -15,12 +15,14 @@
   <header class="header-bar">
     <div class="site-header">
       <div class="menu-toggle">
-        <i class="icon-menu"></i>
+        <a href="/"><i class="icon-menu"></i></a>
       </div>
       <div class="header-title">
         <i class="title-icon icon-folder"></i>
         {% block breadcumb %}
-          <div>业务概况</div>
+          <ul class="breadcrumb">
+            <li><a href="#">业务概况</a></li>
+          </ul>
         {% endblock %}
       </div>
       <div class="header-panel">
