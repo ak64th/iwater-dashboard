@@ -1,0 +1,7 @@
+{
+  "purified": [
+    {{#repeat 12}}
+      {{int 200 500 round=5}}
+    {{/repeat}}
+  ]
+}

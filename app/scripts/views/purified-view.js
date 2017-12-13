@@ -14,6 +14,7 @@ export function initPurifiedView(root) {
         xAxis: {
             splitLine: {show: false},
             axisLabel: {
+                interval: 0,
                 align: 'middle',
             },
             axisTick: {show: false},
@@ -38,10 +39,25 @@ export function initPurifiedView(root) {
             axisTick: {show: false},
             axisLine: {show: false},
         },
+        tooltip: [
+            {
+                trigger: 'axis',
+                show: true,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                textStyle: {
+                    color: '#47d3e2',
+                    fontSize: 10,
+                },
+                formatter: (params) => {
+                    const {name, value} = params[0];
+                    return `${name}净水${value / 1000}吨`;
+                },
+            },
+        ],
         series: [
             {
                 type: 'line',
-                name: 'service-count',
+                name: 'purified',
                 showSymbol: false,
                 smooth: true,
                 lineStyle: {
@@ -70,9 +86,21 @@ export function initPurifiedView(root) {
                         },
                     },
                 },
-                data: [133, 280, 312, 345, 422, 432, 445, 424, 545, 511, 523],
+                data: [],
             },
         ],
     });
-    return chart;
+    return {chart};
+}
+
+export function updatePurifiedView(view, data) {
+    const {chart} = view;
+    chart.setOption({
+        series: [
+            {
+                name: 'purified',
+                data: data,
+            },
+        ],
+    });
 }

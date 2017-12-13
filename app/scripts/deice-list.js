@@ -1,7 +1,7 @@
 import Datatable from 'vanilla-datatables';
 import {defaultConfig, setLoadingMessage, refreshData} from './dt-utils';
 import {initDeviceSummaryView} from './views/device-summary-chart-view';
-import {initPurifiedView} from './views/purified-view';
+import {initPurifiedView, updatePurifiedView} from './views/purified-view';
 
 export default class DeviceListView {
     constructor(root) {
@@ -28,5 +28,9 @@ export default class DeviceListView {
 
     updateDeviceListTable(data) {
         refreshData(this.datatable, data);
+    }
+
+    updatePurifiedView(data) {
+        updatePurifiedView(this.purifiedView, data);
     }
 }

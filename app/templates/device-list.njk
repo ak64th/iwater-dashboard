@@ -57,6 +57,11 @@
                   '正常',
               ]),
           });
+          fetch('/mock/purified')
+              .then((resp) => resp.json())
+              .then((data) => {
+                  deviceListView.updatePurifiedView(data['purified']);
+              });
       })
   </script>
 {% endblock %}
