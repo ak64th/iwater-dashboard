@@ -11,6 +11,32 @@ const initRegions = [
     },
 ];
 
+function buildLegendOptions(color, text) {
+    return {
+        type: 'group',
+        silent: true,
+        children: [
+            {
+                type: 'rect',
+                shape: {
+                    width: 12,
+                    height: 12,
+                },
+                style: {
+                    fill: color,
+                },
+            }, {
+                type: 'text',
+                style: {
+                    text: text,
+                    fill: '#666',
+                    x: 20,
+                    y: 1,
+                },
+            },
+        ],
+    };
+}
 
 function initServiceCoverageView(el) {
     const container = el.querySelector('.chart-container');
@@ -72,6 +98,19 @@ function updateServiceCoverageView(view, data) {
                     },
                 };
             }).concat(initRegions),
+        },
+        graphic: {
+            elements: [
+                {
+                    ...buildLegendOptions('#13879c', '有服务人员覆盖省份'),
+                    left: 40,
+                    bottom: 70,
+                }, {
+                    ...buildLegendOptions('#47d3e2', '无服务人员覆盖省份'),
+                    left: 40,
+                    bottom: 40,
+                },
+            ],
         },
         series: [
             {
