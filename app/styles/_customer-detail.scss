@@ -1,3 +1,5 @@
+@import 'variables';
+
 .column {
   width: 50%;
   padding-top: 20px;
@@ -43,5 +45,25 @@
   .block-header {
     margin-bottom: 20px;
     margin-left: 20px;
+  }
+
+  .switch {
+    display: inline;
+    width: auto;
+    border: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-color: $light;
+    font-weight: 600;
+    outline: none;
+    text-decoration: none;
+  }
+
+  .switch + .icon {
+    display: none;
+  }
+
+  .switch:hover + .icon {
+    display: inline-block;
   }
 }
