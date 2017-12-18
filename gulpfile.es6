@@ -7,6 +7,7 @@ import cssnano from 'gulp-cssnano';
 import data from 'gulp-data';
 import del from 'del';
 import eyeglass from 'eyeglass';
+import favicons from 'gulp-favicons';
 import gulp from 'gulp';
 import gulpSequence from 'gulp-sequence';
 import gutil from 'gulp-util';
@@ -143,6 +144,37 @@ gulp.task('sprite', () => {
     return spriteData;
 });
 
+gulp.task('favicon', () => {
+    return gulp.src(`${PATH.APP}/images/drop.png`)
+        .pipe(favicons({
+            appName: 'Tahoe BI',
+            appDescription: 'Tahoe water purifier BI module',
+            developerName: 'Elmer Yu',
+            developerURL: 'https://github.com/ak64th/iwater-dashboard',
+            background: '#fff',
+            path: '/',
+            url: 'http://zen.iwater.com',
+            version: 1.0,
+            logging: false,
+            online: false,
+            html: false,
+            pipeHTML: false,
+            replace: false,
+            icons: {
+                'favicons': true,
+                'android': false,
+                'appleIcon': false,
+                'appleStartup': false,
+                'coast': false,
+                'firefox': false,
+                'windows': false,
+                'yandex': false,
+            },
+        })).on('error', gutil.log)
+        .pipe(image())
+        .pipe(gulp.dest(PATH.DIST));
+});
+
 gulp.task('clean-map', () => del([`${PATH.DIST}/**/*.map`]));
 
 gulp.task('min-scripts', ['clean-map'], () => {
@@ -170,7 +202,7 @@ gulp.task('build',
         'clean',
         'vendor-scripts',
         ['html', 'style', 'scripts'],
-        ['image', 'sprite']
+        ['image', 'sprite', 'favicon']
     )
 );
 
