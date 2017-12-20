@@ -88,8 +88,7 @@ body {
 
   select {
     width: 96px;
-    -moz-appearance: none; // stylelint-disable-line property-no-vendor-prefix
-    -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
+    appearance: none;
   }
 
   &-item {
