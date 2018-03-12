@@ -36,7 +36,7 @@ const tabData = {
                     },
                 },
             },
-            data: [2, 3, 5, 47, 73, 51, 29, 67, 58, 61, 29],
+            data: [],
         },
     },
     'by-model': {
@@ -145,4 +145,7 @@ export function initInstallationView(root) {
     return chart;
 }
 
-
+export function updateInstallationView(chart, data) {
+    tabData['by-date']['series']['data'] = data;
+    chart.setOption(tabData['by-date']);
+}

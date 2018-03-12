@@ -1,6 +1,6 @@
 import {initMapView, updateMapView} from './views/map-view';
 import {initCustomerView} from './views/customer-view';
-import {initInstallationView} from './views/installation-view';
+import {initInstallationView, updateInstallationView} from './views/installation-view';
 import {initServiceChart, updateServiceView} from './views/service-view';
 import {initSalesView, updateSalesView} from './views/sales-view';
 
@@ -13,7 +13,7 @@ export default class DashboardView {
         initCustomerView(
             root.querySelector('.customer-view')
         );
-        initInstallationView(
+        this.installationView = initInstallationView(
             root.querySelector('.installation-view')
         );
         this.serviceView = initServiceChart(
@@ -26,6 +26,10 @@ export default class DashboardView {
 
     updateMapView(data) {
         updateMapView(this.mapView, data);
+    }
+
+    updateInstallationView(data) {
+        updateInstallationView(this.installationView, data);
     }
 
     updateServiceView(data) {

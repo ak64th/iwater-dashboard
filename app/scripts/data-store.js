@@ -1,4 +1,17 @@
-export const dataStore = {
+/**
+ * Data Store
+ */
+export class DataStore {
+    /**
+     * Create a new data store instance
+     * @param {object} data - initial data.
+     */
+    constructor(data) {
+        this.data = data;
+    }
+}
+
+const singleton = new DataStore({
     currentData: {
         deviceLocations: {
             name: '大连',
@@ -14,4 +27,6 @@ export const dataStore = {
             purchase: 1,
         },
     },
-};
+});
+
+export default singleton;
